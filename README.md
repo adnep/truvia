@@ -1,2 +1,3 @@
-# truvia
-Travel agency website setup
+# Truvia Travel
+
+Faqja për Truvia Travel, agjension turistik.

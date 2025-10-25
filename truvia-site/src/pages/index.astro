@@ -1,0 +1,62 @@
+---
+const title = "Truvia Travel — Po vjen së shpejti";
+const desc = "Udhëtime të planifikuara me kujdes, pushime të bukura, dhe këshilla për aventurën tuaj ideale. Po vjen së shpejti...";
+
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={desc} />
+    <!-- <link rel="icon" href="/favicon.svg" /> -->
+  </head>
+  <body class="min-h-screen bg-gradient-to-b from-white to-gray-100 text-gray-800">
+	<!-- full-screen image background -->
+	<div aria-hidden="true" class="fixed inset-0 -z-10">
+	<div class="absolute inset-0 bg-[url('/b.png')] bg-cover bg-center"></div>
+	<!-- soft dark overlay for text legibility -->
+	<div class="absolute inset-0 bg-black/15"></div>
+	</div>
+
+
+    <main class="grid place-items-center min-h-screen px-6">
+      <section class="w-full max-w-3xl text-center">
+        <!-- logo / wordmark -->
+        <a href="/" class="inline-flex items-center gap-2 mb-8">
+          <span class="inline-block rounded-full h-10 w-10 bg-black text-white grid place-items-center font-semibold">TT</span>
+          <span class="text-xl font-semibold tracking-tight">Truvia Travel</span>
+        </a>
+
+		<h1 class="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight text-white drop-shadow">
+		Po përgatisim aventurën tuaj të radhës <span class="underline decoration-white/30">të paharrueshme</span>.
+		</h1>
+
+		<p class="mt-4 text-lg md:text-xl text-white/90">
+		Faqja jonë e re po vjen së shpejti. <span class="font-semibold">Na ndiqni...</span>
+		</p>
+
+		<div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+		<!-- Primary: solid light button for contrast -->
+		<a href="/contact"
+			class="rounded-full bg-white text-slate-900 px-6 py-3 text-sm font-medium hover:bg-white/90 shadow-sm ring-1 ring-white/20">
+			Na kontaktoni
+		</a>
+
+		<!-- Secondary: translucent on-color button -->
+		<a href="https://www.instagram.com/truviatravel" target="_blank"
+			class="rounded-full border border-white/40 bg-white/10 text-white px-6 py-3 text-sm font-medium hover:bg-white/20 backdrop-blur-sm ring-1 ring-inset ring-white/30">
+			Instagram
+		</a>
+		</div>
+
+		<p class="mt-10 text-sm text-white/70">
+		© {new Date().getFullYear()} Truvia Travel · Prishtinë, Kosovë
+		</p>
+
+      </section>
+    </main>
+  </body>
+</html>
