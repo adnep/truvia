@@ -22,11 +22,14 @@ jobs:
         with:
           node-version: 20
           cache: 'npm'
+          cache-dependency-path: truvia-site/package-lock.json
       - run: npm ci
+        working-directory: truvia-site
       - run: npm run build
+        working-directory: truvia-site
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: truvia-site/dist
   deploy:
     needs: build
     runs-on: ubuntu-latest
