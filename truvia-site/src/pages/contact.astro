@@ -1,0 +1,165 @@
+---
+const title = "Kontaktoni Truvia Travel";
+const desc = "Na kontaktoni - udhëtime të planifikuara me kujdes, pushime të bukura, dhe këshilla për aventurën tuaj ideale.";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={desc} />
+    <!-- <link rel="icon" href="/favicon.svg" /> -->
+  </head>
+
+  <body class="min-h-screen bg-gradient-to-b from-white to-gray-100 text-gray-800">
+    <div aria-hidden="true" class="fixed inset-0 -z-10">
+      <div class="absolute inset-0 bg-[url('/b.png')] bg-cover bg-center"></div>
+      <div class="absolute inset-0 bg-black/15"></div>
+    </div>
+
+    <main class="grid place-items-center min-h-screen px-6">
+      <section class="w-full max-w-3xl text-center">
+        <a href="/" class="inline-flex items-center gap-2 mb-8">
+          <span class="inline-block rounded-full h-10 w-10 bg-black text-white grid place-items-center font-semibold">TT</span>
+          <span class="text-xl font-semibold tracking-tight text-white/90">Truvia Travel</span>
+        </a>
+
+        <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight text-white drop-shadow">
+          Na kontaktoni te <span class="underline decoration-white/30">Truvia Travel</span>
+        </h1>
+        <p class="mt-3 text-lg text-white/85">
+          Na trego për udhëtimin tënd të ëndrrave — ne do ta bëjmë realitet!
+        </p>
+
+        <form
+        id="contact"
+        action="https://formspree.io/f/xeordlzr"
+        method="POST"
+        onsubmit="return handleContactSubmit(event)"
+        class="mx-auto mt-8 text-left rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg p-6 sm:p-8 max-w-xl"
+        >
+        <div class="grid gap-5">
+            <div>
+            <label for="name" class="block text-sm font-medium text-white/90">Emri</label>
+            <input id="name" name="name" required
+                    class="mt-2 w-full rounded-md bg-white/10 text-white placeholder-white/60
+                            border border-white/25 focus:outline-none focus:ring-2 focus:ring-white/50 px-3 py-2"
+                    placeholder="Emri yt" />
+            </div>
+
+            <div>
+            <label for="email" class="block text-sm font-medium text-white/90">Email</label>
+            <input id="email" type="email" name="email" required
+                    class="mt-2 w-full rounded-md bg-white/10 text-white placeholder-white/60
+                            border border-white/25 focus:outline-none focus:ring-2 focus:ring-white/50 px-3 py-2"
+                    placeholder="ti@shembull.com" />
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-5">
+            <div>
+                <label for="dates" class="block text-sm font-medium text-white/90">Datat (opsionale)</label>
+                <input id="dates" name="dates"
+                    class="mt-2 w-full rounded-md bg-white/10 text-white placeholder-white/60
+                            border border-white/25 focus:outline-none focus:ring-2 focus:ring-white/50 px-3 py-2"
+                    placeholder="p.sh., 12–20 Maj" />
+            </div>
+            <div>
+                <label for="destination" class="block text-sm font-medium text-white/90">Destinacioni (opsional)</label>
+                <input id="destination" name="destination"
+                    class="mt-2 w-full rounded-md bg-white/10 text-white placeholder-white/60
+                            border border-white/25 focus:outline-none focus:ring-2 focus:ring-white/50 px-3 py-2"
+                    placeholder="p.sh., Bali, Paris" />
+            </div>
+            </div>
+
+            <div>
+            <label for="message" class="block text-sm font-medium text-white/90">Mesazhi</label>
+            <textarea id="message" name="message" rows="6" required
+                        class="mt-2 w-full rounded-md bg-white/10 text-white placeholder-white/60
+                            border border-white/25 focus:outline-none focus:ring-2 focus:ring-white/50 px-3 py-2"
+                        placeholder="Si mund t'ju ndihmojmë?"></textarea>
+            </div>
+
+            <input type="text" name="_perspemera" tabindex="-1" autocomplete="off" class="hidden" />
+
+            <p id="status" class="text-sm text-white/85" aria-live="polite"></p>
+
+            <button
+            id="submitBtn"
+            type="submit"
+            class="mt-2 rounded-full bg-white text-slate-900 px-6 py-3 text-sm font-medium
+                    hover:bg-white/90 shadow-sm ring-1 ring-white/20"
+            >
+            Dërgo mesazhin
+            </button>
+        </div>
+        </form>
+
+        <script is:inline>
+        async function handleContactSubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+            const statusEl = document.getElementById('status');
+            const submitBtn = document.getElementById('submitBtn');
+
+            if (!form || !statusEl || !submitBtn) {
+            console.warn('Form elements not found.');
+            return false;
+            }
+
+            if (!form.checkValidity()) {
+            form.reportValidity();
+            return false;
+            }
+
+            statusEl.textContent = 'Sending…';
+            submitBtn.disabled = true;
+
+            try {
+            const res = await fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: { Accept: 'application/json' }
+            });
+
+            if (res.ok) {
+                form.reset();
+                statusEl.textContent = 'Mesazhi u dërgua me sukses. Ne do të kthehemi tek ju së shpejti.';
+                console.log('Formspree OK');
+            } else {
+                let msg = 'Diçka shkoi keq. Ju lutemi provoni përsëri. ';
+                let msg1 = ''; // decide later if we want to show detailed errors
+                try {
+                const json = await res.json();
+                if (json && Array.isArray(json.errors) && json.errors.length) {
+                    msg1 = json.errors.map(e => e.message).join(' ');
+                }
+                } catch {}
+                statusEl.textContent = msg;
+                console.warn('Formspree error response');
+            }
+            } catch (err) {
+            statusEl.textContent = 'Network error. Ju lutem provoni përsëri.';
+            console.error(err);
+            } finally {
+            submitBtn.disabled = false;
+            }
+
+            return false;
+        }
+        </script>
+
+        <p class="mt-8 text-sm text-white/70">
+          Preferoni email? <a href="mailto:info@truviatravel.com" class="underline decoration-white/40 hover:decoration-white">
+            info@truviatravel.com
+          </a>
+        </p>
+        <p class="mt-2 text-xs text-white/60">
+          © {new Date().getFullYear()} Truvia Travel · Prishtinë, Kosovë
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
