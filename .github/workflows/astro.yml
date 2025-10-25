@@ -1,7 +1,7 @@
 name: Deploy Astro to GitHub Pages
 on:
   push:
-    branches: [ publish ]
+    branches: [ publish, develop ]
   workflow_dispatch:
 
 permissions:
@@ -16,27 +16,32 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: truvia-site
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'pnpm'
+          cache-dependency-path: truvia-site/pnpm-lock.yaml
+
       - uses: pnpm/action-setup@v4
         with:
           version: 9
-      - run: corepack enable
+
       - run: pnpm install --frozen-lockfile
       - run: pnpm run build
+
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: truvia-site/dist
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
