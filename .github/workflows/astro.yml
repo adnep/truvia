@@ -21,20 +21,18 @@ jobs:
         working-directory: truvia-site
     steps:
       - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: 'pnpm'
-          cache-dependency-path: truvia-site/pnpm-lock.yaml
-
       - uses: pnpm/action-setup@v4
         with:
-          version: 9
-
-      - run: pnpm install --frozen-lockfile
+            version: 9
+      - uses: actions/setup-node@v4
+        with:
+            node-version: 22
+            registry-url: https://registry.npmjs.org
+            cache: pnpm
+            cache-dependency-path: truvia-site/pnpm-lock.yaml
+      - name: Install Dependencies
+        run: pnpm i --frozen-lockfile
       - run: pnpm run build
-
       - uses: actions/upload-pages-artifact@v3
         with:
           path: truvia-site/dist
