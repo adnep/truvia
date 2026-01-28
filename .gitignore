@@ -24,8 +24,8 @@ pnpm-debug.log*
 .idea/
 
 # unused photos
-*/public/a*
-*/public/c*
+*/public/a.png
+*/public/c.png
 
 # vscode extras 
 .vscode
