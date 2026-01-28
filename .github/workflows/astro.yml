@@ -2,7 +2,7 @@ name: Deploy Astro to GitHub Pages
 on:
   push:
     branches: [ publish ]
-  workflow_dispatch:
+  workflow_dispatch: {}
 
 permissions:
   contents: read
