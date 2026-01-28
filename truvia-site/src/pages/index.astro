@@ -12,6 +12,23 @@ const isActive = (href: string) => {
 };
 
 import "../styles/global.css";
+
+import { Image } from "astro:assets";
+import corfu from "../assets/corfu_edited.jpg";
+import amalfi from "../assets/amalfi.jpg";
+import istanbul from "../assets/istanbul.jpg";
+import krabi from "../assets/krabi.jpg";
+import lapland from "../assets/lapland.jpg";
+import london from "../assets/london2.jpg";
+import madeira from "../assets/madeira.jpg";
+import marrakech from "../assets/marrakech.jpg";
+import paris from "../assets/paris.jpeg";
+import prague from "../assets/prague.jpg";
+import pfp from "../assets/Profile-Pic.jpg";
+import riodejaneiro from "../assets/riodejaneiro.jpg";
+import tokyo from "../assets/tokyo.jpg";
+import zermatt from "../assets/zermatt.jpg";
+
 ---
 
 
@@ -125,11 +142,16 @@ import "../styles/global.css";
         </script>
         </header>
 
-        <!-- HERO / BANNER -->
-        <section
-        class="relative w-full overflow-hidden h-[400px] sm:h-[520px] md:h-[620px]"
-        style="background-image: url('/corfu_edited.png'); background-size: cover; background-position: center; background-repeat: no-repeat;"
-        >
+		<section class="relative w-full overflow-hidden h-[400px] sm:h-[520px] md:h-[620px] bg-black">
+		<!-- background image -->
+		<Image
+			src={corfu}
+			alt="Corfu"
+			class="absolute inset-0 h-full w-full object-cover"
+			loading="eager"
+			decoding="async"
+			fetchpriority="high"
+		/>
         <!-- dark overlay -->
         <div class="absolute inset-0 bg-black/40"></div>
 
@@ -188,52 +210,76 @@ import "../styles/global.css";
                         class="group snap-start shrink-0 w-[260px] sm:w-[320px] overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-md hover:ring-slate-300"
                     >
                         <div class="relative aspect-[16/16]">
-                        <img src="/paris.jpeg" alt="Central Europe" class="h-full w-full object-cover" loading="lazy" decoding="async"/>
+						<Image
+							src={paris}
+							alt="Paris"
+							class="h-full w-full object-cover"
+							loading="eager"
+							decoding="async"
+						/>
                         <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
                         <p class="absolute bottom-3 left-4 right-4 text-lg font-semibold text-white">
                             Paris
                         </p>
                         </div>
                         <div class="p-5">
-                        <p class="text-sm text-slate-600">France</p>
+                        <p class="text-sm text-slate-600">Francë</p>
                         <p class="mt-3 text-xs font-semibold tracking-[0.2em] uppercase text-slate-500">Recommended</p>
                         </div>
                     </article>
 
                     <article class="group snap-start shrink-0 w-[260px] sm:w-[320px] overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-md hover:ring-slate-300">
                         <div class="relative aspect-[16/16]">
-                        <img src="/lapland.jpg" alt="Mediterranean Coast" class="h-full w-full object-cover" loading="lazy" decoding="async" />
+                        <Image
+							src={lapland}
+							alt="Lapland"
+							class="h-full w-full object-cover"
+							loading="eager"
+							decoding="async"
+						/>
                         <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
                         <p class="absolute bottom-3 left-4 right-4 text-lg font-semibold text-white">
                             Lapland
                         </p>
                         </div>
                         <div class="p-5">
-                        <p class="text-sm text-slate-600">Finland</p>
+                        <p class="text-sm text-slate-600">Finlandë</p>
                         <p class="mt-3 text-xs font-semibold tracking-[0.2em] uppercase text-slate-500">Recommended</p>
                         </div>
                     </article>
 
                     <article class="group snap-start shrink-0 w-[260px] sm:w-[320px] overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-md hover:ring-slate-300">
                         <div class="relative aspect-[16/16]">
-                        <img src="/madeira.jpg" alt="Mediterranean Coast" class="h-full w-full object-cover" loading="lazy" decoding="async" />
+                        <Image
+							src={madeira}
+							alt="Madeira"
+							class="h-full w-full object-cover"
+							loading="eager"
+							decoding="async"
+						/>
                         <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
                         <p class="absolute bottom-3 left-4 right-4 text-lg font-semibold text-white">
                             Madeira
                         </p>
                         </div>
                         <div class="p-5">
-                        <p class="text-sm text-slate-600">Portugal</p>
+                        <p class="text-sm text-slate-600">Portugali</p>
                         <p class="mt-3 text-xs font-semibold tracking-[0.2em] uppercase text-slate-500">Recommended</p>
                         </div>
                     </article>
 
                     <article class="group snap-start shrink-0 w-[260px] sm:w-[320px] overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-md hover:ring-slate-300">
                         <div class="relative aspect-[16/16]">
-                        <img src="/london2.jpg" alt="Mediterranean Coast" class="h-full w-full object-cover" loading="lazy" decoding="async" />
+                        <Image
+							src={london}
+							alt="London"
+							class="h-full w-full object-cover"
+							loading="eager"
+							decoding="async"
+						/>
                         <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
                         <p class="absolute bottom-3 left-4 right-4 text-lg font-semibold text-white">
-                            London
+                            Londër
                         </p>
                         </div>
                         <div class="p-5">
@@ -244,21 +290,33 @@ import "../styles/global.css";
 
                     <article class="group snap-start shrink-0 w-[260px] sm:w-[320px] overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-md hover:ring-slate-300">
                         <div class="relative aspect-[16/16]">
-                        <img src="/amalfi.jpg" alt="Mediterranean Coast" class="h-full w-full object-cover" loading="lazy" decoding="async" />
+						<Image
+							src={amalfi}
+							alt="Amalfi"
+							class="h-full w-full object-cover"
+							loading="eager"
+							decoding="async"
+						/>
                         <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
                         <p class="absolute bottom-3 left-4 right-4 text-lg font-semibold text-white">
                             Amalfi
                         </p>
                         </div>
                         <div class="p-5">
-                        <p class="text-sm text-slate-600">Italy</p>
+                        <p class="text-sm text-slate-600">Itali</p>
                         <p class="mt-3 text-xs font-semibold tracking-[0.2em] uppercase text-slate-500">Recommended</p>
                         </div>
                     </article>
 
                     <article class="group snap-start shrink-0 w-[260px] sm:w-[320px] overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-md hover:ring-slate-300">
                         <div class="relative aspect-[16/16]">
-                        <img src="/riodejaneiro.jpg" alt="Mediterranean Coast" class="h-full w-full object-cover" loading="lazy" decoding="async" />
+                        <Image
+							src={riodejaneiro}
+							alt="riodejaneiro"
+							class="h-full w-full object-cover"
+							loading="eager"
+							decoding="async"
+						/>
                         <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
                         <p class="absolute bottom-3 left-4 right-4 text-lg font-semibold text-white">
                             Rio De Janeiro
@@ -272,84 +330,120 @@ import "../styles/global.css";
 
                     <article class="group snap-start shrink-0 w-[260px] sm:w-[320px] overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-md hover:ring-slate-300">
                         <div class="relative aspect-[16/16]">
-                        <img src="/tokyo.jpg" alt="Mediterranean Coast" class="h-full w-full object-cover" loading="lazy" decoding="async" />
+                        <Image
+							src={tokyo}
+							alt="tokyo"
+							class="h-full w-full object-cover"
+							loading="eager"
+							decoding="async"
+						/>
                         <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
                         <p class="absolute bottom-3 left-4 right-4 text-lg font-semibold text-white">
-                            Tokyo
+                            Tokio
                         </p>
                         </div>
                         <div class="p-5">
-                        <p class="text-sm text-slate-600">Japan</p>
+                        <p class="text-sm text-slate-600">Japoni</p>
                         <p class="mt-3 text-xs font-semibold tracking-[0.2em] uppercase text-slate-500">Recommended</p>
                         </div>
                     </article>
 
                     <article class="group snap-start shrink-0 w-[260px] sm:w-[320px] overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-md hover:ring-slate-300">
                         <div class="relative aspect-[16/16]">
-                        <img src="/zermatt.jpg" alt="Mediterranean Coast" class="h-full w-full object-cover" loading="lazy" decoding="async" />
+                        <Image
+							src={zermatt}
+							alt="zermatt"
+							class="h-full w-full object-cover"
+							loading="eager"
+							decoding="async"
+						/>
                         <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
                         <p class="absolute bottom-3 left-4 right-4 text-lg font-semibold text-white">
                             Zermatt
                         </p>
                         </div>
                         <div class="p-5">
-                        <p class="text-sm text-slate-600">France</p>
+                        <p class="text-sm text-slate-600">Francë</p>
                         <p class="mt-3 text-xs font-semibold tracking-[0.2em] uppercase text-slate-500">Recommended</p>
                         </div>
                     </article>
 
                     <article class="group snap-start shrink-0 w-[260px] sm:w-[320px] overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-md hover:ring-slate-300">
                         <div class="relative aspect-[16/16]">
-                        <img src="/istanbul.jpg" alt="Mediterranean Coast" class="h-full w-full object-cover" loading="lazy" decoding="async" />
+                        <Image
+							src={istanbul}
+							alt="istanbul"
+							class="h-full w-full object-cover"
+							loading="eager"
+							decoding="async"
+						/>
                         <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
                         <p class="absolute bottom-3 left-4 right-4 text-lg font-semibold text-white">
-                            Istanbul
+                            Stamboll
                         </p>
                         </div>
                         <div class="p-5">
-                        <p class="text-sm text-slate-600">Turkey</p>
+                        <p class="text-sm text-slate-600">Turki</p>
                         <p class="mt-3 text-xs font-semibold tracking-[0.2em] uppercase text-slate-500">Recommended</p>
                         </div>
                     </article>
 
                     <article class="group snap-start shrink-0 w-[260px] sm:w-[320px] overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-md hover:ring-slate-300">
                         <div class="relative aspect-[16/16]">
-                        <img src="/krabi.jpg" alt="Mediterranean Coast" class="h-full w-full object-cover" loading="lazy" decoding="async" />
+                        <Image
+							src={krabi}
+							alt="krabi"
+							class="h-full w-full object-cover"
+							loading="eager"
+							decoding="async"
+						/>
                         <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
                         <p class="absolute bottom-3 left-4 right-4 text-lg font-semibold text-white">
                             Krabi
                         </p>
                         </div>
                         <div class="p-5">
-                        <p class="text-sm text-slate-600">Thailand</p>
+                        <p class="text-sm text-slate-600">Tajlandë</p>
                         <p class="mt-3 text-xs font-semibold tracking-[0.2em] uppercase text-slate-500">Recommended</p>
                         </div>
                     </article>
 
                     <article class="group snap-start shrink-0 w-[260px] sm:w-[320px] overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-md hover:ring-slate-300">
                         <div class="relative aspect-[16/16]">
-                        <img src="/prague.jpg" alt="Mediterranean Coast" class="h-full w-full object-cover" loading="lazy" decoding="async" />
+                        <Image
+							src={prague}
+							alt="Prague"
+							class="h-full w-full object-cover"
+							loading="eager"
+							decoding="async"
+						/>
                         <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
                         <p class="absolute bottom-3 left-4 right-4 text-lg font-semibold text-white">
-                            Prague
+                            Pragë
                         </p>
                         </div>
                         <div class="p-5">
-                        <p class="text-sm text-slate-600">Czechia</p>
+                        <p class="text-sm text-slate-600">Çeki</p>
                         <p class="mt-3 text-xs font-semibold tracking-[0.2em] uppercase text-slate-500">Recommended</p>
                         </div>
                     </article>
 
                     <article class="group snap-start shrink-0 w-[260px] sm:w-[320px] overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-md hover:ring-slate-300">
                         <div class="relative aspect-[16/16]">
-                        <img src="/marrakech.jpg" alt="Mediterranean Coast" class="h-full w-full object-cover" loading="lazy" decoding="async" />
+                        <Image
+							src={marrakech}
+							alt="marrakech"
+							class="h-full w-full object-cover"
+							loading="eager"
+							decoding="async"
+						/>
                         <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
                         <p class="absolute bottom-3 left-4 right-4 text-lg font-semibold text-white">
                             Marrakesh
                         </p>
                         </div>
                         <div class="p-5">
-                        <p class="text-sm text-slate-600">Morocco</p>
+                        <p class="text-sm text-slate-600">Moroko</p>
                         <p class="mt-3 text-xs font-semibold tracking-[0.2em] uppercase text-slate-500">Recommended</p>
                         </div>
                     </article>
