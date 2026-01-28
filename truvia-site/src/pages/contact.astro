@@ -1,164 +1,275 @@
 ---
 const title = "Kontaktoni Truvia Travel";
 const desc = "Na kontaktoni - udhëtime të planifikuara me kujdes, pushime të bukura, dhe këshilla për aventurën tuaj ideale.";
+const pathname = Astro.url.pathname;
+
+const links = [
+  { href: "/", label: "Home" },
+];
+
+const isActive = (href: string) => {
+  if (href === "/") return pathname === "/";
+  return pathname.startsWith(href);
+};
+
+import "../styles/global.css";
 ---
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>{title}</title>
-    <meta name="description" content={desc} />
-    <!-- <link rel="icon" href="/favicon.svg" /> -->
-  </head>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>{title}</title>
+        <meta name="description" content={desc} />
+        <!-- <link rel="icon" href="/favicon.svg" /> -->
+    </head>
 
-  <body class="min-h-screen bg-gradient-to-b from-white to-gray-100 text-gray-800">
-    <div aria-hidden="true" class="fixed inset-0 -z-10">
-      <div class="absolute inset-0 bg-[url('/b.png')] bg-cover bg-center"></div>
-      <div class="absolute inset-0 bg-black/15"></div>
-    </div>
+  
 
-    <main class="grid place-items-center min-h-screen px-6">
-      <section class="w-full max-w-3xl text-center">
-        <a href="/" class="inline-flex items-center gap-2 mb-8">
-          <span class="inline-block rounded-full h-10 w-10 bg-black text-white grid place-items-center font-semibold">TT</span>
-          <span class="text-xl font-semibold tracking-tight text-white/90">Truvia Travel</span>
-        </a>
-
-        <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight text-white drop-shadow">
-          Na kontaktoni te <span class="underline decoration-white/30">Truvia Travel</span>
-        </h1>
-        <p class="mt-3 text-lg text-white/85">
-          Na trego për udhëtimin tënd të ëndrrave — ne do ta bëjmë realitet!
-        </p>
-
-        <form
-        id="contact"
-        action="https://formspree.io/f/xeordlzr"
-        method="POST"
-        onsubmit="return handleContactSubmit(event)"
-        class="mx-auto mt-8 text-left rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg p-6 sm:p-8 max-w-xl"
-        >
-        <div class="grid gap-5">
-            <div>
-            <label for="name" class="block text-sm font-medium text-white/90">Emri</label>
-            <input id="name" name="name" required
-                    class="mt-2 w-full rounded-md bg-white/10 text-white placeholder-white/60
-                            border border-white/25 focus:outline-none focus:ring-2 focus:ring-white/50 px-3 py-2"
-                    placeholder="Emri yt" />
+    <body class="min-h-screen bg-gradient-to-b from-white font-pristine to-gray-100 text-gray-800">
+        <!-- NAVBAR -->
+        <header class="sticky top-0 z-50 border-b border-black/20 bg-[#0B3D2E]">
+        <div class="flex items-center justify-between px-4 sm:px-6 py-4">
+            <!-- Logo -->
+            <a href="/" class="inline-flex items-center gap-2">
+            <img
+                src="/Profile-Pic.jpg"
+                alt="Truvia Travel logo"
+                class="h-8 w-8 rounded-full object-cover ring-1 ring-white/20"
+            />
+            <div class="flex flex-col leading-none">
+                <span class="text-sm sm:text-base font-semibold tracking-tight text-white/90">
+                Truvia Travel
+                </span>
+                <span class="text-[0.55rem] sm:text-[0.65rem] tracking-[0.2em] uppercase text-white/70 self-end">
+                rise with us
+                </span>
             </div>
+            </a>
 
-            <div>
-            <label for="email" class="block text-sm font-medium text-white/90">Email</label>
-            <input id="email" type="email" name="email" required
-                    class="mt-2 w-full rounded-md bg-white/10 text-white placeholder-white/60
-                            border border-white/25 focus:outline-none focus:ring-2 focus:ring-white/50 px-3 py-2"
-                    placeholder="ti@shembull.com" />
-            </div>
+            <!-- Desktop Nav -->
+            <nav class="hidden items-center gap-1 text-sm font-medium sm:flex">
+            {links.map((l) => (
+                <a
+                href={l.href}
+                class:list={[
+                    "rounded-full px-3 py-2 transition",
+                    "text-white/80 hover:text-white hover:bg-white/10",
+                    "focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40",
+                    isActive(l.href) ? "bg-white/15 text-white" : "",
+                ]}
+                aria-current={isActive(l.href) ? "page" : undefined}
+                >
+                {l.label}
+                </a>
+            ))}
 
-            <div class="grid sm:grid-cols-2 gap-5">
-            <div>
-                <label for="dates" class="block text-sm font-medium text-white/90">Datat (opsionale)</label>
-                <input id="dates" name="dates"
-                    class="mt-2 w-full rounded-md bg-white/10 text-white placeholder-white/60
-                            border border-white/25 focus:outline-none focus:ring-2 focus:ring-white/50 px-3 py-2"
-                    placeholder="p.sh., 12–20 Maj" />
-            </div>
-            <div>
-                <label for="destination" class="block text-sm font-medium text-white/90">Destinacioni (opsional)</label>
-                <input id="destination" name="destination"
-                    class="mt-2 w-full rounded-md bg-white/10 text-white placeholder-white/60
-                            border border-white/25 focus:outline-none focus:ring-2 focus:ring-white/50 px-3 py-2"
-                    placeholder="p.sh., Bali, Paris" />
-            </div>
-            </div>
-
-            <div>
-            <label for="message" class="block text-sm font-medium text-white/90">Mesazhi</label>
-            <textarea id="message" name="message" rows="6" required
-                        class="mt-2 w-full rounded-md bg-white/10 text-white placeholder-white/60
-                            border border-white/25 focus:outline-none focus:ring-2 focus:ring-white/50 px-3 py-2"
-                        placeholder="Si mund t'ju ndihmojmë?"></textarea>
-            </div>
-
-            <input type="text" name="_perspemera" tabindex="-1" autocomplete="off" class="hidden" />
-
-            <p id="status" class="text-sm text-white/85" aria-live="polite"></p>
-
-            <button
-            id="submitBtn"
-            type="submit"
-            class="mt-2 rounded-full bg-white text-slate-900 px-6 py-3 text-sm font-medium
-                    hover:bg-white/90 shadow-sm ring-1 ring-white/20"
+            <!-- CTA -->
+            <a
+                href="/contact"
+                class="ml-2 inline-flex items-center rounded-full bg-white px-4 py-2 text-sm font-semibold text-[#0B3D2E] shadow-sm transition hover:bg-white/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
             >
-            Dërgo mesazhin
+                Na kontaktoni
+            </a>
+            </nav>
+
+            <!-- Mobile button -->
+            <button
+            id="nav-toggle"
+            type="button"
+            class="inline-flex items-center justify-center rounded-xl p-2 text-white/90 transition hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 sm:hidden"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobile-nav"
+            >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
             </button>
         </div>
-        </form>
+
+        <!-- Mobile Nav -->
+        <div id="mobile-nav" class="hidden border-t border-white/10 bg-[#0B3D2E] sm:hidden">
+            <nav class="flex flex-col gap-1 px-4 sm:px-6 py-3 text-sm font-medium">
+            {links.map((l) => (
+                <a
+                href={l.href}
+                class:list={[
+                    "rounded-xl px-3 py-2 transition",
+                    "text-white/85 hover:bg-white/10 hover:text-white",
+                    isActive(l.href) ? "bg-white/15 text-white" : "",
+                ]}
+                aria-current={isActive(l.href) ? "page" : undefined}
+                >
+                {l.label}
+                </a>
+            ))}
+
+            <a
+                href="/contact"
+                class="mt-2 inline-flex items-center justify-center rounded-xl bg-white px-4 py-2 font-semibold text-[#0B3D2E] hover:bg-white/90"
+            >
+                Na kontaktoni
+            </a>
+            </nav>
+        </div>
 
         <script is:inline>
-        async function handleContactSubmit(event) {
-            event.preventDefault();
-            const form = event.target;
-            const statusEl = document.getElementById('status');
-            const submitBtn = document.getElementById('submitBtn');
+            const btn = document.getElementById("nav-toggle");
+            const menu = document.getElementById("mobile-nav");
 
-            if (!form || !statusEl || !submitBtn) {
-            console.warn('Form elements not found.');
-            return false;
-            }
-
-            if (!form.checkValidity()) {
-            form.reportValidity();
-            return false;
-            }
-
-            statusEl.textContent = 'Sending…';
-            submitBtn.disabled = true;
-
-            try {
-            const res = await fetch(form.action, {
-                method: 'POST',
-                body: new FormData(form),
-                headers: { Accept: 'application/json' }
+            if (btn && menu) {
+            btn.addEventListener("click", () => {
+                const expanded = btn.getAttribute("aria-expanded") === "true";
+                btn.setAttribute("aria-expanded", String(!expanded));
+                menu.classList.toggle("hidden");
             });
-
-            if (res.ok) {
-                form.reset();
-                statusEl.textContent = 'Mesazhi u dërgua me sukses. Ne do të kthehemi tek ju së shpejti.';
-                console.log('Formspree OK');
-            } else {
-                let msg = 'Diçka shkoi keq. Ju lutemi provoni përsëri. ';
-                let msg1 = ''; // decide later if we want to show detailed errors
-                try {
-                const json = await res.json();
-                if (json && Array.isArray(json.errors) && json.errors.length) {
-                    msg1 = json.errors.map(e => e.message).join(' ');
-                }
-                } catch {}
-                statusEl.textContent = msg;
-                console.warn('Formspree error response');
             }
-            } catch (err) {
-            statusEl.textContent = 'Network error. Ju lutem provoni përsëri.';
-            console.error(err);
-            } finally {
-            submitBtn.disabled = false;
-            }
-
-            return false;
-        }
         </script>
+        </header>
 
-        <p class="mt-8 text-sm text-white/100">
-          Preferoni email? <a href="mailto:info@truviatravel.com" class="underline decoration-white/40 hover:decoration-white">
-            info@truviatravel.com
-          </a>
-          <br />
-          <br />
-        </p>
-      </section>
-    </main>
-  </body>
+
+        <div aria-hidden="true" class="fixed inset-0 -z-10">
+            <div class="absolute inset-0 bg-[url('/b.png')] bg-cover bg-center"></div>
+            <div class="absolute inset-0 bg-black/15"></div>
+        </div>
+
+        <main class="grid place-items-center min-h-screen px-6">
+            <section class="w-full max-w-3xl text-center">
+                <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight text-white drop-shadow pt-6">
+                Na kontaktoni te <span class="underline decoration-white/30">Truvia Travel</span>
+                </h1>
+                <p class="mt-3 text-lg text-white/85">
+                Na trego për udhëtimin tënd të ëndrrave — ne do ta bëjmë realitet!
+                </p>
+
+                <form
+                id="contact"
+                action="https://formspree.io/f/xeordlzr"
+                method="POST"
+                onsubmit="return handleContactSubmit(event)"
+                class="mx-auto mt-8 text-left rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg p-6 sm:p-8 max-w-xl"
+                >
+                <div class="grid gap-5">
+                    <div>
+                    <label for="name" class="block text-sm font-medium text-white/90">Emri</label>
+                    <input id="name" name="name" required
+                            class="mt-2 w-full rounded-md bg-white/10 text-white placeholder-white/60
+                                    border border-white/25 focus:outline-none focus:ring-2 focus:ring-white/50 px-3 py-2"
+                            placeholder="Emri yt" />
+                    </div>
+
+                    <div>
+                    <label for="email" class="block text-sm font-medium text-white/90">Email</label>
+                    <input id="email" type="email" name="email" required
+                            class="mt-2 w-full rounded-md bg-white/10 text-white placeholder-white/60
+                                    border border-white/25 focus:outline-none focus:ring-2 focus:ring-white/50 px-3 py-2"
+                            placeholder="ti@shembull.com" />
+                    </div>
+
+                    <div class="grid sm:grid-cols-2 gap-5">
+                    <div>
+                        <label for="dates" class="block text-sm font-medium text-white/90">Datat (opsionale)</label>
+                        <input id="dates" name="dates"
+                            class="mt-2 w-full rounded-md bg-white/10 text-white placeholder-white/60
+                                    border border-white/25 focus:outline-none focus:ring-2 focus:ring-white/50 px-3 py-2"
+                            placeholder="p.sh., 12–20 Maj" />
+                    </div>
+                    <div>
+                        <label for="destination" class="block text-sm font-medium text-white/90">Destinacioni (opsional)</label>
+                        <input id="destination" name="destination"
+                            class="mt-2 w-full rounded-md bg-white/10 text-white placeholder-white/60
+                                    border border-white/25 focus:outline-none focus:ring-2 focus:ring-white/50 px-3 py-2"
+                            placeholder="p.sh., Bali, Paris" />
+                    </div>
+                    </div>
+
+                    <div>
+                    <label for="message" class="block text-sm font-medium text-white/90">Mesazhi</label>
+                    <textarea id="message" name="message" rows="6" required
+                                class="mt-2 w-full rounded-md bg-white/10 text-white placeholder-white/60
+                                    border border-white/25 focus:outline-none focus:ring-2 focus:ring-white/50 px-3 py-2"
+                                placeholder="Si mund t'ju ndihmojmë?"></textarea>
+                    </div>
+
+                    <input type="text" name="_perspemera" tabindex="-1" autocomplete="off" class="hidden" />
+
+                    <p id="status" class="text-sm text-white/85" aria-live="polite"></p>
+
+                    <button
+                    id="submitBtn"
+                    type="submit"
+                    class="mt-2 rounded-full bg-white text-slate-900 px-6 py-3 text-sm font-medium
+                            hover:bg-white/90 shadow-sm ring-1 ring-white/20"
+                    >
+                    Dërgo mesazhin
+                    </button>
+                </div>
+                </form>
+
+                <script is:inline>
+                async function handleContactSubmit(event) {
+                    event.preventDefault();
+                    const form = event.target;
+                    const statusEl = document.getElementById('status');
+                    const submitBtn = document.getElementById('submitBtn');
+
+                    if (!form || !statusEl || !submitBtn) {
+                    console.warn('Form elements not found.');
+                    return false;
+                    }
+
+                    if (!form.checkValidity()) {
+                    form.reportValidity();
+                    return false;
+                    }
+
+                    statusEl.textContent = 'Sending…';
+                    submitBtn.disabled = true;
+
+                    try {
+                    const res = await fetch(form.action, {
+                        method: 'POST',
+                        body: new FormData(form),
+                        headers: { Accept: 'application/json' }
+                    });
+
+                    if (res.ok) {
+                        form.reset();
+                        statusEl.textContent = 'Mesazhi u dërgua me sukses. Ne do të kthehemi tek ju së shpejti.';
+                        console.log('Formspree OK');
+                    } else {
+                        let msg = 'Diçka shkoi keq. Ju lutemi provoni përsëri. ';
+                        let msg1 = ''; // decide later if we want to show detailed errors
+                        try {
+                        const json = await res.json();
+                        if (json && Array.isArray(json.errors) && json.errors.length) {
+                            msg1 = json.errors.map(e => e.message).join(' ');
+                        }
+                        } catch {}
+                        statusEl.textContent = msg;
+                        console.warn('Formspree error response');
+                    }
+                    } catch (err) {
+                    statusEl.textContent = 'Network error. Ju lutem provoni përsëri.';
+                    console.error(err);
+                    } finally {
+                    submitBtn.disabled = false;
+                    }
+
+                    return false;
+                }
+                </script>
+
+                <p class="mt-8 text-sm text-white/100">
+                Preferoni email? <a href="mailto:info@truviatravel.com" class="underline decoration-white/40 hover:decoration-white">
+                    info@truviatravel.com
+                </a>
+                <br />
+                <br />
+                </p>
+            </section>
+        </main>
+    </body>
 </html>

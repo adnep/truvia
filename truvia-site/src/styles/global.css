@@ -3,3 +3,52 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+@font-face {
+  font-family: "Pristine";
+  src:
+    url("/fonts/Pristine-Book.ttf") format("truetype"),
+    url("/fonts/Pristine-Book.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pristine";
+  src:
+    url("/fonts/Pristine-BookItalic.ttf") format("truetype"),
+    url("/fonts/Pristine-BookItalic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pristine";
+  src:
+    url("/fonts/Pristine-Bold.ttf") format("truetype"),
+    url("/fonts/Pristine-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pristine";
+  src:
+    url("/fonts/Pristine-BoldItalic.ttf") format("truetype"),
+    url("/fonts/Pristine-BoldItalic.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@layer utilities {
+  .font-pristine {
+    font-family: "Pristine", ui-sans-serif, system-ui;
+  }
+}
