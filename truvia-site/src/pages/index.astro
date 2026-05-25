@@ -531,6 +531,273 @@ import zermatt from "../assets/zermatt.jpg";
         </div>
         </section>
 
+        <!-- Kuizi -->
+        <secion class="mx-auto max-w-3xl px-6 =b-24">
+        <h2 class="text-sm uppercase text-center tracking-[0.2em] text-slate-500 mb-2">
+        Planifiko udhëtimin tënd
+        </h2>
+        <h3 class="text-3xl font=semibold tracking-tight text-center text-slate-900 mb-2">
+        Ku dëshironi të shkoni? ✈️
+        </h3>
+        <p class="text-center text-slate-500 text-sm mb-10">
+        Na tregoni çfarë kërkoni — ne gjejmë ofertën perfekte për ju.
+        </p>
+        <div id="quiz" class="rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 p-8">
+         <!--Progress bar -->
+         <div class="w-full bg-slate-100 rounded-full h-1.5 mb-8">
+        <div id="quiz-progress" class="bg-[#2C1239] h-1.5 rounded-full transition-all duration-500" style="width: 14%"></div>
+        </div>
+
+        <!-- Step 1 -->
+        <div class="quiz-step" id="step-1">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[#2C1239]/60 mb-2">Hapi 1 / 7</p>
+        <h4 class="text-xl font-semibold text-slate-900 mb-1">Ku doni të shkoni?</h4>
+        <p class="text-sm text-slate-500 mb-6">Where would you like to go?</p>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3" data-q="1">
+            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Greece">🇬🇷 <span class="block font-medium text-sm mt-1">Greece</span><span class="text-xs text-slate-500">Islands, sun, history</span></button>
+            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Italy">🇮🇹 <span class="block font-medium text-sm mt-1">Italy</span><span class="text-xs text-slate-500">Rome, Milan, Amalfi</span></button>
+            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Spain">🇪🇸 <span class="block font-medium text-sm mt-1">Spain</span><span class="text-xs text-slate-500">Barcelona, Mallorca</span></button>
+            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Turkey">🇹🇷 <span class="block font-medium text-sm mt-1">Turkey</span><span class="text-xs text-slate-500">Istanbul, Antalya</span></button>
+            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Croatia">🇭🇷 <span class="block font-medium text-sm mt-1">Croatia</span><span class="text-xs text-slate-500">Dubrovnik, islands</span></button>
+            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Surprise me">🎲 <span class="block font-medium text-sm mt-1">Surprise me!</span><span class="text-xs text-slate-500">You choose for me</span></button>
+        </div>
+        <div class="flex justify-end mt-6">
+            <button class="quiz-next rounded-full bg-[#2C1239] text-white px-6 py-2.5 text-sm font-medium disabled:opacity-40 transition" data-next="2" disabled>Vazhdoni →</button>
+        </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="quiz-step hidden" id="step-2">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[#2C1239]/60 mb-2">Hapi 2 / 7</p>
+        <h4 class="text-xl font-semibold text-slate-900 mb-1">Çfarë lloj udhëtimi doni?</h4>
+        <p class="text-sm text-slate-500 mb-6">What kind of trip are you looking for?</p>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3" data-q="2">
+            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Beach & relax">🏖️ <span class="block font-medium text-sm mt-1">Beach & relax</span><span class="text-xs text-slate-500">Sun, sea, do nothing</span></button>
+            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="City & culture">🏛️ <span class="block font-medium text-sm mt-1">City & culture</span><span class="text-xs text-slate-500">Museums, food, walks</span></button>
+            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Adventure">🧗 <span class="block font-medium text-sm mt-1">Adventure</span><span class="text-xs text-slate-500">Hiking, active, explore</span></button>
+            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Romantic">💕 <span class="block font-medium text-sm mt-1">Romantic</span><span class="text-xs text-slate-500">Couples, honeymoon</span></button>
+            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Party & nightlife">🎉 <span class="block font-medium text-sm mt-1">Party & nightlife</span><span class="text-xs text-slate-500">Ibiza, Mykonos vibes</span></button>
+            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Mix of everything">✨ <span class="block font-medium text-sm mt-1">Mix of everything</span><span class="text-xs text-slate-500">A bit of all</span></button>
+        </div>
+        <div class="flex justify-between mt-6">
+            <button class="quiz-back rounded-full border border-slate-200 text-slate-600 px-6 py-2.5 text-sm font-medium hover:bg-slate-50 transition" data-back="1">← Kthehu</button>
+            <button class="quiz-next rounded-full bg-[#2C1239] text-white px-6 py-2.5 text-sm font-medium disabled:opacity-40 transition" data-next="3" disabled>Vazhdoni →</button>
+        </div>
+        </div>
+        <!-- Step 3 -->
+        <div class="quiz-step hidden" id="step-3">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[#2C1239]/60 mb-2">Hapi 3 / 7</p>
+        <h4 class="text-xl font-semibold text-slate-900 mb-1">Me kë do të udhëtoni?</h4>
+        <p class="text-sm text-slate-500 mb-6">Who are you travelling with?</p>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3" data-q="3">
+            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Solo">🧍 <span class="block font-medium text-sm mt-1">Solo</span><span class="text-xs text-slate-500">Just me</span></button>
+            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Couple">👫 <span class="block font-medium text-sm mt-1">Couple</span><span class="text-xs text-slate-500">Me & my partner</span></button>
+            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Friends">👯 <span class="block font-medium text-sm mt-1">Friends</span><span class="text-xs text-slate-500">Group of friends</span></button>
+            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Family">👨‍👩‍👧 <span class="block font-medium text-sm mt-1">Family</span><span class="text-xs text-slate-500">Kids included</span></button>
+        </div>
+        <div class="flex justify-between mt-6">
+            <button class="quiz-back rounded-full border border-slate-200 text-slate-600 px-6 py-2.5 text-sm font-medium hover:bg-slate-50 transition" data-back="2">← Kthehu</button>
+            <button class="quiz-next rounded-full bg-[#2C1239] text-white px-6 py-2.5 text-sm font-medium disabled:opacity-40 transition" data-next="4" disabled>Vazhdoni →</button>
+        </div>
+        </div>
+
+         <!-- Step 4 -->
+        <div class="quiz-step hidden" id="step-4">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[#2C1239]/60 mb-2">Hapi 4 / 7</p>
+        <h4 class="text-xl font-semibold text-slate-900 mb-1">Sa ditë keni në plan?</h4>
+        <p class="text-sm text-slate-500 mb-6">How many days are you planning?</p>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3" data-q="4">
+            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="3-4 ditë">⚡ <span class="block font-medium text-sm mt-1">3–4 ditë</span><span class="text-xs text-slate-500">Quick getaway</span></button>
+            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="5-7 ditë">🗓️ <span class="block font-medium text-sm mt-1">5–7 ditë</span><span class="text-xs text-slate-500">Classic week</span></button>
+            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="8-14 ditë">🌍 <span class="block font-medium text-sm mt-1">8–14 ditë</span><span class="text-xs text-slate-500">Long holiday</span></button>
+            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Nuk jam i sigurt">🤷 <span class="block font-medium text-sm mt-1">Not sure yet</span><span class="text-xs text-slate-500">Flexible</span></button>
+        </div>
+        <div class="flex justify-between mt-6">
+            <button class="quiz-back rounded-full border border-slate-200 text-slate-600 px-6 py-2.5 text-sm font-medium hover:bg-slate-50 transition" data-back="3">← Kthehu</button>
+            <button class="quiz-next rounded-full bg-[#2C1239] text-white px-6 py-2.5 text-sm font-medium disabled:opacity-40 transition" data-next="5" disabled>Vazhdoni →</button>
+        </div>
+        </div>
+
+        <!-- Step 5 - Budget slider -->
+        <div class="quiz-step hidden" id="step-5">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[#2C1239]/60 mb-2">Hapi 5 / 7</p>
+        <h4 class="text-xl font-semibold text-slate-900 mb-1">Çfarë buxheti keni për person?</h4>
+        <p class="text-sm text-slate-500 mb-6">Budget per person — flights + hotel included</p>
+        <div class="text-3xl font-semibold text-[#2C1239] mb-4" id="budget-val">€300</div>
+        <input type="range" min="100" max="2000" step="50" value="300" id="budget-slider"
+            class="w-full accent-[#2C1239] mb-2" />
+        <div class="flex justify-between text-xs text-slate-400">
+            <span>€100</span><span>€500</span><span>€1000</span><span>€2000+</span>
+        </div>
+        <div class="flex justify-between mt-6">
+            <button class="quiz-back rounded-full border border-slate-200 text-slate-600 px-6 py-2.5 text-sm font-medium hover:bg-slate-50 transition" data-back="4">← Kthehu</button>
+            <button class="quiz-next rounded-full bg-[#2C1239] text-white px-6 py-2.5 text-sm font-medium transition" data-next="6">Vazhdoni →</button>
+        </div>
+        </div>
+
+        <!-- Step 6 -->
+        <div class="quiz-step hidden" id="step-6">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[#2C1239]/60 mb-2">Hapi 6 / 7</p>
+        <h4 class="text-xl font-semibold text-slate-900 mb-1">Kur planifikoni të shkoni?</h4>
+        <p class="text-sm text-slate-500 mb-6">When are you planning to travel?</p>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3" data-q="6">
+            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Qershor">☀️ <span class="block font-medium text-sm mt-1">Qershor</span><span class="text-xs text-slate-500">June</span></button>
+            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Korrik">🌊 <span class="block font-medium text-sm mt-1">Korrik</span><span class="text-xs text-slate-500">July</span></button>
+            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Gusht">🏄 <span class="block font-medium text-sm mt-1">Gusht</span><span class="text-xs text-slate-500">August</span></button>
+            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Shtator">🍂 <span class="block font-medium text-sm mt-1">Shtator</span><span class="text-xs text-slate-500">September</span></button>
+            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Nuk di ende">🤷 <span class="block font-medium text-sm mt-1">Nuk di ende</span><span class="text-xs text-slate-500">Not decided</span></button>
+        </div>
+        <div class="flex justify-between mt-6">
+            <button class="quiz-back rounded-full border border-slate-200 text-slate-600 px-6 py-2.5 text-sm font-medium hover:bg-slate-50 transition" data-back="5">← Kthehu</button>
+            <button class="quiz-next rounded-full bg-[#2C1239] text-white px-6 py-2.5 text-sm font-medium disabled:opacity-40 transition" data-next="7" disabled>Vazhdoni →</button>
+        </div>
+        </div>
+
+        <!-- Step 7 - Contact -->
+        <div class="quiz-step hidden" id="step-7">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[#2C1239]/60 mb-2">Hapi 7 / 7</p>
+        <h4 class="text-xl font-semibold text-slate-900 mb-1">Si mund t'ju kontaktojmë?</h4>
+        <p class="text-sm text-slate-500 mb-6">How can we reach you with the best deal?</p>
+        <div class="grid gap-4">
+            <input id="q-name" type="text" placeholder="Emri juaj / Your name"
+            class="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#2C1239]/30" />
+            <input id="q-phone" type="tel" placeholder="Numri i telefonit / Phone number"
+            class="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#2C1239]/30" />
+        </div>
+        <div class="flex justify-between mt-6">
+            <button class="quiz-back rounded-full border border-slate-200 text-slate-600 px-6 py-2.5 text-sm font-medium hover:bg-slate-50 transition" data-back="6">← Kthehu</button>
+            <button id="quiz-submit" class="rounded-full bg-[#2C1239] text-white px-6 py-2.5 text-sm font-medium disabled:opacity-40 transition" disabled>Dërgo kërkesën →</button>
+        </div>
+        </div>
+
+        <!-- Result -->
+        <div class="quiz-step hidden text-center" id="step-result">
+        <div class="text-5xl mb-4">🎉</div>
+        <h4 class="text-2xl font-semibold text-slate-900 mb-2">Faleminderit!</h4>
+        <p class="text-slate-600 mb-6">Kërkesa juaj u pranua! Do t'ju kontaktojmë me ofertat më të mira sa më shpejt.<br><span class="text-sm text-slate-400">We'll be in touch with the best deals for you.</span></p>
+        <div id="quiz-summary" class="text-left bg-slate-50 rounded-xl p-5 mb-6 text-sm text-slate-700 space-y-2"></div>
+        <a id="quiz-wa" href="#" target="_blank"
+            class="inline-flex items-center gap-2 rounded-full bg-[#25D366] text-white px-6 py-3 text-sm font-medium hover:bg-[#22c35e] transition mb-4">
+            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.533 5.862L0 24l6.335-1.652A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.371l-.36-.214-3.724.972.99-3.614-.235-.372A9.818 9.818 0 1112 21.818z"/></svg>
+            Konfirmo në WhatsApp
+        </a>
+        <br>
+        <button id="quiz-restart" class="text-sm text-[#2C1239] underline decoration-[#2C1239]/30 hover:decoration-[#2C1239]">Fillo nga e para</button>
+        </div>
+        </div>
+        </section>
+
+<script is:inline>
+(function() {
+  const answers = { budget: '€300' };
+
+  document.querySelectorAll('.quiz-opt').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const grid = this.closest('[data-q]');
+      const q = grid.dataset.q;
+      grid.querySelectorAll('.quiz-opt').forEach(b => {
+        b.classList.remove('border-[#2C1239]', 'bg-[#2C1239]/5');
+        b.classList.add('border-slate-200');
+      });
+      this.classList.add('border-[#2C1239]', 'bg-[#2C1239]/5');
+      this.classList.remove('border-slate-200');
+      answers['q' + q] = this.dataset.v;
+      const step = this.closest('.quiz-step');
+      const nextBtn = step.querySelector('.quiz-next');
+      if (nextBtn) nextBtn.disabled = false;
+      updateProgress();
+    });
+  });
+
+  document.getElementById('budget-slider').addEventListener('input', function() {
+    const v = parseInt(this.value);
+    const display = v >= 2000 ? '€2000+' : '€' + v;
+    document.getElementById('budget-val').textContent = display;
+    answers.budget = display;
+  });
+
+  function updateProgress() {
+    const filled = Object.keys(answers).length;
+    const pct = Math.min(Math.round((filled / 7) * 100), 100);
+    document.getElementById('quiz-progress').style.width = pct + '%';
+  }
+
+  document.querySelectorAll('.quiz-next').forEach(btn => {
+    btn.addEventListener('click', function() {
+      if (this.disabled) return;
+      const next = this.dataset.next;
+      document.querySelectorAll('.quiz-step').forEach(s => s.classList.add('hidden'));
+      document.getElementById('step-' + next).classList.remove('hidden');
+      updateProgress();
+    });
+  });
+
+  document.querySelectorAll('.quiz-back').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const back = this.dataset.back;
+      document.querySelectorAll('.quiz-step').forEach(s => s.classList.add('hidden'));
+      document.getElementById('step-' + back).classList.remove('hidden');
+    });
+  });
+
+  const nameEl = document.getElementById('q-name');
+  const phoneEl = document.getElementById('q-phone');
+  const submitBtn = document.getElementById('quiz-submit');
+
+  [nameEl, phoneEl].forEach(el => {
+    el.addEventListener('input', function() {
+      submitBtn.disabled = !(nameEl.value.trim() && phoneEl.value.trim());
+    });
+  });
+
+  submitBtn.addEventListener('click', function() {
+    const name = nameEl.value.trim();
+    const phone = phoneEl.value.trim();
+    if (!name || !phone) return;
+    answers.name = name;
+    answers.phone = phone;
+
+    const rows = [
+      ['Destinacioni', answers.q1 || '-'],
+      ['Lloji', answers.q2 || '-'],
+      ['Me kë', answers.q3 || '-'],
+      ['Ditët', answers.q4 || '-'],
+      ['Buxheti', answers.budget],
+      ['Periudha', answers.q6 || '-'],
+      ['Emri', name],
+      ['Telefoni', phone],
+    ];
+
+    document.getElementById('quiz-summary').innerHTML = rows
+      .map(r => `<div class="flex justify-between border-b border-slate-100 pb-1"><span class="text-slate-500">${r[0]}</span><span class="font-medium">${r[1]}</span></div>`)
+      .join('');
+
+    const msg = `Pershendetje Truvia Travel! 👋\n\nEmri: ${name}\nTelefoni: ${phone}\nDestinacioni: ${answers.q1||'-'}\nLloji: ${answers.q2||'-'}\nMe kë: ${answers.q3||'-'}\nDitët: ${answers.q4||'-'}\nBuxheti: ${answers.budget}\nPeriudha: ${answers.q6||'-'}\n\nJu lutem me kontaktoni me ofertat me te mira! 🙏`;
+    document.getElementById('quiz-wa').href = 'https://wa.me/38344238343?text=' + encodeURIComponent(msg);
+
+    document.querySelectorAll('.quiz-step').forEach(s => s.classList.add('hidden'));
+    document.getElementById('step-result').classList.remove('hidden');
+    document.getElementById('quiz-progress').style.width = '100%';
+  });
+
+  document.getElementById('quiz-restart').addEventListener('click', function() {
+    Object.keys(answers).forEach(k => { if (k !== 'budget') delete answers[k]; });
+    answers.budget = '€300';
+    document.getElementById('budget-slider').value = 300;
+    document.getElementById('budget-val').textContent = '€300';
+    document.querySelectorAll('.quiz-opt').forEach(b => {
+      b.classList.remove('border-[#2C1239]', 'bg-[#2C1239]/5');
+      b.classList.add('border-slate-200');
+    });
+    document.querySelectorAll('.quiz-next').forEach(b => { if (b.dataset.next !== '6') b.disabled = true; });
+    document.getElementById('q-name').value = '';
+    document.getElementById('q-phone').value = '';
+    document.querySelectorAll('.quiz-step').forEach(s => s.classList.add('hidden'));
+    document.getElementById('step-1').classList.remove('hidden');
+    document.getElementById('quiz-progress').style.width = '14%';
+  });
+})();
+</script>
 
         <!-- Kontakti -->
         <section class="border-t bg-[#2C1239]">
