@@ -54,7 +54,7 @@ import zermatt from "../assets/zermatt.jpg";
 			</a>
 
             <!-- Desktop Nav -->
-            <nav class="hidden items-center gap-1 text-sm font-medium sm:flex">
+            <nav class="hidden items-center gap-3 text-sm font-medium sm:flex">
             {links.map((l) => (
                 <a
                 href={l.href}
@@ -70,28 +70,54 @@ import zermatt from "../assets/zermatt.jpg";
                 </a>
             ))}
 
+            <!-- Language toggle -->
+            <button
+                id="lang-toggle"
+                type="button"
+                aria-label="Switch language"
+                class="inline-flex items-center gap-1 rounded-full border border-white/30 px-3 py-1.5 text-xs font-semibold hover:bg-white/10 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
+            >
+                <span id="lang-label-sq" class="text-white transition">AL</span>
+                <span class="text-white/30">|</span>
+                <span id="lang-label-en" class="text-white/40 transition">EN</span>
+            </button>
+
             <!-- CTA -->
             <a
                 href="/contact"
-                class="ml-2 inline-flex items-center rounded-full bg-white px-4 py-2 text-sm font-semibold text-[#0B3D2E] shadow-sm transition hover:bg-white/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
+                data-al="Na kontaktoni"
+                data-en="Contact us"
+                class="inline-flex items-center rounded-full bg-white px-4 py-2 text-sm font-semibold text-[#0B3D2E] shadow-sm transition hover:bg-white/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
             >
                 Na kontaktoni
             </a>
             </nav>
 
-            <!-- Mobile button -->
+            <!-- Mobile right side -->
+            <div class="flex items-center gap-2 sm:hidden">
             <button
-            id="nav-toggle"
-            type="button"
-            class="inline-flex items-center justify-center rounded-xl p-2 text-white/90 transition hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 sm:hidden"
-            aria-label="Open menu"
-            aria-expanded="false"
-            aria-controls="mobile-nav"
+                id="lang-toggle-mobile"
+                type="button"
+                aria-label="Switch language"
+                class="inline-flex items-center gap-1 rounded-full border border-white/30 px-2.5 py-1 text-xs font-semibold hover:bg-white/10 transition"
+            >
+                <span id="lang-label-sq-mob" class="text-white transition">AL</span>
+                <span class="text-white/30">|</span>
+                <span id="lang-label-en-mob" class="text-white/40 transition">EN</span>
+            </button>
+            <button
+                id="nav-toggle"
+                type="button"
+                class="inline-flex items-center justify-center rounded-xl p-2 text-white/90 transition hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
+                aria-label="Open menu"
+                aria-expanded="false"
+                aria-controls="mobile-nav"
             >
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
             </button>
+            </div>
         </div>
 
         <!-- Mobile Nav -->
@@ -113,6 +139,8 @@ import zermatt from "../assets/zermatt.jpg";
 
             <a
                 href="/contact"
+                data-al="Na kontaktoni"
+                data-en="Contact us"
                 class="mt-2 inline-flex items-center justify-center rounded-xl bg-white px-4 py-2 font-semibold text-[#0B3D2E] hover:bg-white/90"
             >
                 Na kontaktoni
@@ -123,7 +151,6 @@ import zermatt from "../assets/zermatt.jpg";
         <script is:inline>
             const btn = document.getElementById("nav-toggle");
             const menu = document.getElementById("mobile-nav");
-
             if (btn && menu) {
             btn.addEventListener("click", () => {
                 const expanded = btn.getAttribute("aria-expanded") === "true";
@@ -149,397 +176,47 @@ import zermatt from "../assets/zermatt.jpg";
 
         <!-- content -->
         <div class="relative mx-auto px-6 py-24 sm:py-24">
-            <p class="text-sm font-semibold tracking-[0.25em] uppercase text-white/80">
+            <p
+                data-al="Këtu fillon udhëtimi juaj"
+                data-en="This is where your journey begins"
+                class="text-sm font-semibold tracking-[0.25em] uppercase text-white/80">
             Këtu fillon udhëtimi juaj
             </p>
 
-            <h1 class="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-5xl">
+            <h1
+                data-al="Më pak stres. Më shumë udhëtime."
+                data-en="Less stress. More travels."
+                class="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-5xl">
             Më pak stres. Më shumë udhëtime.
             </h1>
 
-            <p class="mt-4 text-white/85">
+            <p
+                data-al="Eksploro botën, planifiko udhëtime më lehtë, dhe krijo kujtime të veçanta - të gjitha në një vend."
+                data-en="Explore the world, plan trips more easily, and create special memories — all in one place."
+                class="mt-4 text-white/85">
             Eksploro botën, planifiko udhëtime më lehtë, dhe krijo kujtime të veçanta - të gjitha në një vend.
             </p>
         </div>
         </section>
 
-
-        <!-- HERO -->
-        <section class="mx-auto max-w-8xl text-center px-6 pt-24 pb-6">
-        <h1 class="text-4xl sm:text-5xl font-semibold tracking-tight">
-            Thjesht udhëto — detajet i rregullojmë ne.
-        </h1>
-        </section>
-
-        <!-- ABOUT -->
-        <section class="mx-auto max-w-3xl px-6 pb-20">
-            <p class="text-slate-700 leading-relaxed">
-                Truvia Travel është një agjenci e vogël dhe e pavarur udhëtimesh,
-                që krijon itinerare të personalizuara për kudo në botë.
-            </p>
-            <p class="mt-4 text-slate-700 leading-relaxed">
-                Ne punojmë ngushtë me klientët tanë për të ndërtuar udhëtime që ndihen të natyrshme,
-                të qeta dhe personale. Pa rrugë të gatshme, pa ndalesa të panevojshme — vetëm vende
-                të përzgjedhura me kujdes, që lidhen bukur me njëra-tjetrën.
-            </p>
-            <p class="mt-4 text-slate-700 leading-relaxed">
-                Nëse po planifikon një fundjavë në qytet ose një udhëtim të gjatë nëpër botë, 
-                qëllimi ynë është ta bëjmë gjithçka sa më të thjeshtë për ty.
-            </p>
-        </section>
-
-        <!-- DESTINATIONS -->
-        <section class="mx-auto max-w-5xl px-6 pb-20">
-            <h2 class="text-sm uppercase text-center tracking-[0.2em] text-slate-500">
-                Destinacione të rekomanduara
-            </h2>
-
-            <!-- Horizontal scroller -->
-            <div class="mt-6 -mx-6 overflow-x-auto px-6">
-                <div class="flex gap-4 snap-x snap-mandatory pb-2 pr-6">
-                    <!-- Card -->
-                    <article
-                        class="group snap-start shrink-0 w-[260px] sm:w-[320px] overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-md hover:ring-slate-300"
-                    >
-                        <div class="relative aspect-[16/16]">
-						<Image
-							src={paris}
-							alt="Paris"
-							class="h-full w-full object-cover"
-							loading="eager"
-							decoding="async"
-						/>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
-                        <p class="absolute bottom-3 left-4 right-4 text-lg font-semibold text-white">
-                            Paris
-                        </p>
-                        </div>
-                        <div class="p-5">
-                        <p class="text-sm text-slate-600">Francë</p>
-                        <p class="mt-3 text-xs font-semibold tracking-[0.2em] uppercase text-slate-500">Recommended</p>
-                        </div>
-                    </article>
-
-                    <article class="group snap-start shrink-0 w-[260px] sm:w-[320px] overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-md hover:ring-slate-300">
-                        <div class="relative aspect-[16/16]">
-                        <Image
-							src={lapland}
-							alt="Lapland"
-							class="h-full w-full object-cover"
-							loading="eager"
-							decoding="async"
-						/>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
-                        <p class="absolute bottom-3 left-4 right-4 text-lg font-semibold text-white">
-                            Lapland
-                        </p>
-                        </div>
-                        <div class="p-5">
-                        <p class="text-sm text-slate-600">Finlandë</p>
-                        <p class="mt-3 text-xs font-semibold tracking-[0.2em] uppercase text-slate-500">Recommended</p>
-                        </div>
-                    </article>
-
-                    <article class="group snap-start shrink-0 w-[260px] sm:w-[320px] overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-md hover:ring-slate-300">
-                        <div class="relative aspect-[16/16]">
-                        <Image
-							src={madeira}
-							alt="Madeira"
-							class="h-full w-full object-cover"
-							loading="eager"
-							decoding="async"
-						/>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
-                        <p class="absolute bottom-3 left-4 right-4 text-lg font-semibold text-white">
-                            Madeira
-                        </p>
-                        </div>
-                        <div class="p-5">
-                        <p class="text-sm text-slate-600">Portugali</p>
-                        <p class="mt-3 text-xs font-semibold tracking-[0.2em] uppercase text-slate-500">Recommended</p>
-                        </div>
-                    </article>
-
-                    <article class="group snap-start shrink-0 w-[260px] sm:w-[320px] overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-md hover:ring-slate-300">
-                        <div class="relative aspect-[16/16]">
-                        <Image
-							src={london}
-							alt="London"
-							class="h-full w-full object-cover"
-							loading="eager"
-							decoding="async"
-						/>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
-                        <p class="absolute bottom-3 left-4 right-4 text-lg font-semibold text-white">
-                            Londër
-                        </p>
-                        </div>
-                        <div class="p-5">
-                        <p class="text-sm text-slate-600">UK</p>
-                        <p class="mt-3 text-xs font-semibold tracking-[0.2em] uppercase text-slate-500">Recommended</p>
-                        </div>
-                    </article>
-
-                    <article class="group snap-start shrink-0 w-[260px] sm:w-[320px] overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-md hover:ring-slate-300">
-                        <div class="relative aspect-[16/16]">
-						<Image
-							src={amalfi}
-							alt="Amalfi"
-							class="h-full w-full object-cover"
-							loading="eager"
-							decoding="async"
-						/>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
-                        <p class="absolute bottom-3 left-4 right-4 text-lg font-semibold text-white">
-                            Amalfi
-                        </p>
-                        </div>
-                        <div class="p-5">
-                        <p class="text-sm text-slate-600">Itali</p>
-                        <p class="mt-3 text-xs font-semibold tracking-[0.2em] uppercase text-slate-500">Recommended</p>
-                        </div>
-                    </article>
-
-                    <article class="group snap-start shrink-0 w-[260px] sm:w-[320px] overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-md hover:ring-slate-300">
-                        <div class="relative aspect-[16/16]">
-                        <Image
-							src={riodejaneiro}
-							alt="riodejaneiro"
-							class="h-full w-full object-cover"
-							loading="eager"
-							decoding="async"
-						/>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
-                        <p class="absolute bottom-3 left-4 right-4 text-lg font-semibold text-white">
-                            Rio De Janeiro
-                        </p>
-                        </div>
-                        <div class="p-5">
-                        <p class="text-sm text-slate-600">Brazil</p>
-                        <p class="mt-3 text-xs font-semibold tracking-[0.2em] uppercase text-slate-500">Recommended</p>
-                        </div>
-                    </article>
-
-                    <article class="group snap-start shrink-0 w-[260px] sm:w-[320px] overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-md hover:ring-slate-300">
-                        <div class="relative aspect-[16/16]">
-                        <Image
-							src={tokyo}
-							alt="tokyo"
-							class="h-full w-full object-cover"
-							loading="eager"
-							decoding="async"
-						/>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
-                        <p class="absolute bottom-3 left-4 right-4 text-lg font-semibold text-white">
-                            Tokio
-                        </p>
-                        </div>
-                        <div class="p-5">
-                        <p class="text-sm text-slate-600">Japoni</p>
-                        <p class="mt-3 text-xs font-semibold tracking-[0.2em] uppercase text-slate-500">Recommended</p>
-                        </div>
-                    </article>
-
-                    <article class="group snap-start shrink-0 w-[260px] sm:w-[320px] overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-md hover:ring-slate-300">
-                        <div class="relative aspect-[16/16]">
-                        <Image
-							src={zermatt}
-							alt="zermatt"
-							class="h-full w-full object-cover"
-							loading="eager"
-							decoding="async"
-						/>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
-                        <p class="absolute bottom-3 left-4 right-4 text-lg font-semibold text-white">
-                            Zermatt
-                        </p>
-                        </div>
-                        <div class="p-5">
-                        <p class="text-sm text-slate-600">Francë</p>
-                        <p class="mt-3 text-xs font-semibold tracking-[0.2em] uppercase text-slate-500">Recommended</p>
-                        </div>
-                    </article>
-
-                    <article class="group snap-start shrink-0 w-[260px] sm:w-[320px] overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-md hover:ring-slate-300">
-                        <div class="relative aspect-[16/16]">
-                        <Image
-							src={istanbul}
-							alt="istanbul"
-							class="h-full w-full object-cover"
-							loading="eager"
-							decoding="async"
-						/>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
-                        <p class="absolute bottom-3 left-4 right-4 text-lg font-semibold text-white">
-                            Stamboll
-                        </p>
-                        </div>
-                        <div class="p-5">
-                        <p class="text-sm text-slate-600">Turki</p>
-                        <p class="mt-3 text-xs font-semibold tracking-[0.2em] uppercase text-slate-500">Recommended</p>
-                        </div>
-                    </article>
-
-                    <article class="group snap-start shrink-0 w-[260px] sm:w-[320px] overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-md hover:ring-slate-300">
-                        <div class="relative aspect-[16/16]">
-                        <Image
-							src={krabi}
-							alt="krabi"
-							class="h-full w-full object-cover"
-							loading="eager"
-							decoding="async"
-						/>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
-                        <p class="absolute bottom-3 left-4 right-4 text-lg font-semibold text-white">
-                            Krabi
-                        </p>
-                        </div>
-                        <div class="p-5">
-                        <p class="text-sm text-slate-600">Tajlandë</p>
-                        <p class="mt-3 text-xs font-semibold tracking-[0.2em] uppercase text-slate-500">Recommended</p>
-                        </div>
-                    </article>
-
-                    <article class="group snap-start shrink-0 w-[260px] sm:w-[320px] overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-md hover:ring-slate-300">
-                        <div class="relative aspect-[16/16]">
-                        <Image
-							src={prague}
-							alt="Prague"
-							class="h-full w-full object-cover"
-							loading="eager"
-							decoding="async"
-						/>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
-                        <p class="absolute bottom-3 left-4 right-4 text-lg font-semibold text-white">
-                            Pragë
-                        </p>
-                        </div>
-                        <div class="p-5">
-                        <p class="text-sm text-slate-600">Çeki</p>
-                        <p class="mt-3 text-xs font-semibold tracking-[0.2em] uppercase text-slate-500">Recommended</p>
-                        </div>
-                    </article>
-
-                    <article class="group snap-start shrink-0 w-[260px] sm:w-[320px] overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-md hover:ring-slate-300">
-                        <div class="relative aspect-[16/16]">
-                        <Image
-							src={marrakech}
-							alt="marrakech"
-							class="h-full w-full object-cover"
-							loading="eager"
-							decoding="async"
-						/>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
-                        <p class="absolute bottom-3 left-4 right-4 text-lg font-semibold text-white">
-                            Marrakesh
-                        </p>
-                        </div>
-                        <div class="p-5">
-                        <p class="text-sm text-slate-600">Moroko</p>
-                        <p class="mt-3 text-xs font-semibold tracking-[0.2em] uppercase text-slate-500">Recommended</p>
-                        </div>
-                    </article>
-                </div>
-            </div>
-            <p class="mt-3 text-center text-xs text-slate-500">Scroll horizontally to explore →</p>
-        </section>
-
-
-
-        <!-- WHY US -->
-        <section class="mx-auto max-w-5xl px-6 pb-24">
-        <h2 class="text-sm uppercase tracking-[0.2em] text-emerald-900/70 text-center">
-            Pse të zgjedhni Truvia Travel?
-        </h2>
-
-        <div class="mt-8 grid gap-4 sm:grid-cols-2">
-            <article class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-emerald-900/10 transition hover:-translate-y-0.5 hover:shadow-md hover:ring-emerald-900/20">
-            <div class="flex items-start gap-3">
-                <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-900/10 text-emerald-950 ring-1 ring-emerald-900/10">
-                <!-- sparkle -->
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3z" />
-                </svg>
-                </span>
-                <div>
-                <p class="text-xs font-semibold tracking-[0.2em] uppercase text-emerald-900/60">Personalizim</p>
-                <h3 class="mt-1 text-lg font-semibold text-slate-900">Itinerare 100% sipas jush</h3>
-                <p class="mt-2 text-sm leading-relaxed text-slate-600">
-                    Na tregoni stilin, buxhetin dhe ritmin tuaj — ne krijojmë një plan udhëtimi që duket natyral dhe i lehtë.
-                </p>
-                </div>
-            </div>
-            </article>
-
-            <article class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-emerald-900/10 transition hover:-translate-y-0.5 hover:shadow-md hover:ring-emerald-900/20">
-            <div class="flex items-start gap-3">
-                <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-900/10 text-emerald-950 ring-1 ring-emerald-900/10">
-                <!-- map -->
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5 2V6l5-2 6 2 5-2v16l-5 2-6-2z" />
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 4v16M15 6v16" />
-                </svg>
-                </span>
-                <div>
-                <p class="text-xs font-semibold tracking-[0.2em] uppercase text-emerald-900/60">Qartësi</p>
-                <h3 class="mt-1 text-lg font-semibold text-slate-900">Plan i qartë dhe pa stres</h3>
-                <p class="mt-2 text-sm leading-relaxed text-slate-600">
-                    Itinerar i organizuar me logjikë: kohë reale, distanca të arsyeshme dhe rekomandime që bëjnë sens së bashku.
-                </p>
-                </div>
-            </div>
-            </article>
-
-            <article class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-emerald-900/10 transition hover:-translate-y-0.5 hover:shadow-md hover:ring-emerald-900/20">
-            <div class="flex items-start gap-3">
-                <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-900/10 text-emerald-950 ring-1 ring-emerald-900/10">
-                <!-- clock -->
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v5l3 2" />
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                </span>
-                <div>
-                <p class="text-xs font-semibold tracking-[0.2em] uppercase text-emerald-900/60">Kursim kohe</p>
-                <h3 class="mt-1 text-lg font-semibold text-slate-900">Më pak kërkim, më shumë udhëtim</h3>
-                <p class="mt-2 text-sm leading-relaxed text-slate-600">
-                    Ne bëjmë filtrimin e opsioneve: vendet, transportin, aktivitetet — që ju të fokusoheni te përjetimi.
-                </p>
-                </div>
-            </div>
-            </article>
-
-            <article class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-emerald-900/10 transition hover:-translate-y-0.5 hover:shadow-md hover:ring-emerald-900/20">
-            <div class="flex items-start gap-3">
-                <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-900/10 text-emerald-950 ring-1 ring-emerald-900/10">
-                <!-- shield check -->
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2l7 4v6c0 5-3 9-7 10-4-1-7-5-7-10V6l7-4z" />
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" />
-                </svg>
-                </span>
-
-                <div>
-                <p class="text-xs font-semibold tracking-[0.2em] uppercase text-emerald-900/60">Kujdes</p>
-                <h3 class="mt-1 text-lg font-semibold text-slate-900">Detaje që bëjnë diferencën</h3>
-                <p class="mt-2 text-sm leading-relaxed text-slate-600">
-                    Nga “hidden gems” te këshillat praktike — çdo gjë menduar që udhëtimi të shkojë smooth dhe me besim.
-                </p>
-                </div>
-            </div>
-            </article>
-        </div>
-        </section>
-
         <!-- Kuizi -->
-        <secion class="mx-auto max-w-3xl px-6 =b-24">
-        <h2 class="text-sm uppercase text-center tracking-[0.2em] text-slate-500 mb-2">
+        <section class="mx-auto max-w-3xl px-6 pt-16 pb-10">
+        <h2
+            data-al="Planifiko udhëtimin tënd"
+            data-en="Plan your trip"
+            class="text-sm uppercase text-center tracking-[0.2em] text-slate-500 mb-2">
         Planifiko udhëtimin tënd
         </h2>
-        <h3 class="text-3xl font=semibold tracking-tight text-center text-slate-900 mb-2">
+        <h3
+            data-al="Ku dëshironi të shkoni? ✈️"
+            data-en="Where would you like to go? ✈️"
+            class="text-3xl font-semibold tracking-tight text-center text-slate-900 mb-2">
         Ku dëshironi të shkoni? ✈️
         </h3>
-        <p class="text-center text-slate-500 text-sm mb-10">
+        <p
+            data-al="Na tregoni çfarë kërkoni — ne gjejmë ofertën perfekte për ju."
+            data-en="Tell us what you're looking for — we'll find the perfect offer for you."
+            class="text-center text-slate-500 text-sm mb-10">
         Na tregoni çfarë kërkoni — ne gjejmë ofertën perfekte për ju.
         </p>
         <div id="quiz" class="rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 p-8">
@@ -550,79 +227,80 @@ import zermatt from "../assets/zermatt.jpg";
 
         <!-- Step 1 -->
         <div class="quiz-step" id="step-1">
-        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[#2C1239]/60 mb-2">Hapi 1 / 7</p>
-        <h4 class="text-xl font-semibold text-slate-900 mb-1">Ku doni të shkoni?</h4>
-        <p class="text-sm text-slate-500 mb-6">Where would you like to go?</p>
+        <p data-al="Hapi 1 / 7" data-en="Step 1 / 7" class="text-xs font-semibold uppercase tracking-[0.2em] text-[#2C1239]/60 mb-2">Hapi 1 / 7</p>
+        <h4 data-al="Ku doni të shkoni?" data-en="Where would you like to go?" class="text-xl font-semibold text-slate-900 mb-1">Ku doni të shkoni?</h4>
+        <p data-al="Zgjedhni destinacionin tuaj të preferuar." data-en="Choose your preferred destination." class="text-sm text-slate-500 mb-6">Zgjedhni destinacionin tuaj të preferuar.</p>
         <div class="grid grid-cols-2 sm:grid-cols-3 gap-3" data-q="1">
-            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Greece">🇬🇷 <span class="block font-medium text-sm mt-1">Greece</span><span class="text-xs text-slate-500">Islands, sun, history</span></button>
-            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Italy">🇮🇹 <span class="block font-medium text-sm mt-1">Italy</span><span class="text-xs text-slate-500">Rome, Milan, Amalfi</span></button>
-            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Spain">🇪🇸 <span class="block font-medium text-sm mt-1">Spain</span><span class="text-xs text-slate-500">Barcelona, Mallorca</span></button>
-            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Turkey">🇹🇷 <span class="block font-medium text-sm mt-1">Turkey</span><span class="text-xs text-slate-500">Istanbul, Antalya</span></button>
-            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Croatia">🇭🇷 <span class="block font-medium text-sm mt-1">Croatia</span><span class="text-xs text-slate-500">Dubrovnik, islands</span></button>
-            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Surprise me">🎲 <span class="block font-medium text-sm mt-1">Surprise me!</span><span class="text-xs text-slate-500">You choose for me</span></button>
+            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Greqi">🇬🇷 <span data-al="Greqi" data-en="Greece" class="block font-medium text-sm mt-1">Greqi</span><span data-al="Ishuj, diell, histori" data-en="Islands, sun, history" class="text-xs text-slate-500">Ishuj, diell, histori</span></button>
+            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Itali">🇮🇹 <span data-al="Itali" data-en="Italy" class="block font-medium text-sm mt-1">Itali</span><span data-al="Romë, Milano, Amalfi" data-en="Rome, Milan, Amalfi" class="text-xs text-slate-500">Romë, Milano, Amalfi</span></button>
+            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Spanjë">🇪🇸 <span data-al="Spanjë" data-en="Spain" class="block font-medium text-sm mt-1">Spanjë</span><span data-al="Barcelonë, Majorka" data-en="Barcelona, Mallorca" class="text-xs text-slate-500">Barcelonë, Majorka</span></button>
+            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Turqi">🇹🇷 <span data-al="Turqi" data-en="Turkey" class="block font-medium text-sm mt-1">Turqi</span><span data-al="Stamboll, Antalya" data-en="Istanbul, Antalya" class="text-xs text-slate-500">Stamboll, Antalya</span></button>
+            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Kroaci">🇭🇷 <span data-al="Kroaci" data-en="Croatia" class="block font-medium text-sm mt-1">Kroaci</span><span data-al="Dubrovnik, ishuj" data-en="Dubrovnik, islands" class="text-xs text-slate-500">Dubrovnik, ishuj</span></button>
+            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Surprizomëni">🎲 <span data-al="Më surprizo!" data-en="Surprise me!" class="block font-medium text-sm mt-1">Më surprizo!</span><span data-al="Zgjedhni ju për mua" data-en="You choose for me" class="text-xs text-slate-500">Zgjedhni ju për mua</span></button>
         </div>
         <div class="flex justify-end mt-6">
-            <button class="quiz-next rounded-full bg-[#2C1239] text-white px-6 py-2.5 text-sm font-medium disabled:opacity-40 transition" data-next="2" disabled>Vazhdoni →</button>
+            <button data-al="Vazhdoni →" data-en="Continue →" class="quiz-next rounded-full bg-[#2C1239] text-white px-6 py-2.5 text-sm font-medium disabled:opacity-40 transition" data-next="2" disabled>Vazhdoni →</button>
         </div>
         </div>
 
         <!-- Step 2 -->
         <div class="quiz-step hidden" id="step-2">
-        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[#2C1239]/60 mb-2">Hapi 2 / 7</p>
-        <h4 class="text-xl font-semibold text-slate-900 mb-1">Çfarë lloj udhëtimi doni?</h4>
-        <p class="text-sm text-slate-500 mb-6">What kind of trip are you looking for?</p>
+        <p data-al="Hapi 2 / 7" data-en="Step 2 / 7" class="text-xs font-semibold uppercase tracking-[0.2em] text-[#2C1239]/60 mb-2">Hapi 2 / 7</p>
+        <h4 data-al="Çfarë lloj udhëtimi doni?" data-en="What kind of trip do you want?" class="text-xl font-semibold text-slate-900 mb-1">Çfarë lloj udhëtimi doni?</h4>
+        <p data-al="Zgjedhni stilin e udhëtimit tuaj." data-en="Choose your travel style." class="text-sm text-slate-500 mb-6">Zgjedhni stilin e udhëtimit tuaj.</p>
         <div class="grid grid-cols-2 sm:grid-cols-3 gap-3" data-q="2">
-            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Beach & relax">🏖️ <span class="block font-medium text-sm mt-1">Beach & relax</span><span class="text-xs text-slate-500">Sun, sea, do nothing</span></button>
-            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="City & culture">🏛️ <span class="block font-medium text-sm mt-1">City & culture</span><span class="text-xs text-slate-500">Museums, food, walks</span></button>
-            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Adventure">🧗 <span class="block font-medium text-sm mt-1">Adventure</span><span class="text-xs text-slate-500">Hiking, active, explore</span></button>
-            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Romantic">💕 <span class="block font-medium text-sm mt-1">Romantic</span><span class="text-xs text-slate-500">Couples, honeymoon</span></button>
-            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Party & nightlife">🎉 <span class="block font-medium text-sm mt-1">Party & nightlife</span><span class="text-xs text-slate-500">Ibiza, Mykonos vibes</span></button>
-            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Mix of everything">✨ <span class="block font-medium text-sm mt-1">Mix of everything</span><span class="text-xs text-slate-500">A bit of all</span></button>
+            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Plazh & relaksim">🏖️ <span data-al="Plazh & relaksim" data-en="Beach & relax" class="block font-medium text-sm mt-1">Plazh & relaksim</span><span data-al="Diell, det, qetësi" data-en="Sun, sea, do nothing" class="text-xs text-slate-500">Diell, det, qetësi</span></button>
+            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Qytet & kulturë">🏛️ <span data-al="Qytet & kulturë" data-en="City & culture" class="block font-medium text-sm mt-1">Qytet & kulturë</span><span data-al="Muze, ushqim, shëtitje" data-en="Museums, food, walks" class="text-xs text-slate-500">Muze, ushqim, shëtitje</span></button>
+            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Aventurë">🧗 <span data-al="Aventurë" data-en="Adventure" class="block font-medium text-sm mt-1">Aventurë</span><span data-al="Hiking, aktiv, eksplorim" data-en="Hiking, active, explore" class="text-xs text-slate-500">Hiking, aktiv, eksplorim</span></button>
+            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Romantik">💕 <span data-al="Romantik" data-en="Romantic" class="block font-medium text-sm mt-1">Romantik</span><span data-al="Çift, muaj mjalti" data-en="Couples, honeymoon" class="text-xs text-slate-500">Çift, muaj mjalti</span></button>
+            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Argëtim & jetë nate">🎉 <span data-al="Argëtim & jetë nate" data-en="Party & nightlife" class="block font-medium text-sm mt-1">Argëtim & jetë nate</span><span data-al="Ibiza, Mykonos" data-en="Ibiza, Mykonos vibes" class="text-xs text-slate-500">Ibiza, Mykonos</span></button>
+            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Të gjitha nga pak">✨ <span data-al="Të gjitha nga pak" data-en="Mix of everything" class="block font-medium text-sm mt-1">Të gjitha nga pak</span><span data-al="Të gjitha nga pak" data-en="A bit of everything" class="text-xs text-slate-500">Të gjitha nga pak</span></button>
         </div>
         <div class="flex justify-between mt-6">
-            <button class="quiz-back rounded-full border border-slate-200 text-slate-600 px-6 py-2.5 text-sm font-medium hover:bg-slate-50 transition" data-back="1">← Kthehu</button>
-            <button class="quiz-next rounded-full bg-[#2C1239] text-white px-6 py-2.5 text-sm font-medium disabled:opacity-40 transition" data-next="3" disabled>Vazhdoni →</button>
-        </div>
-        </div>
-        <!-- Step 3 -->
-        <div class="quiz-step hidden" id="step-3">
-        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[#2C1239]/60 mb-2">Hapi 3 / 7</p>
-        <h4 class="text-xl font-semibold text-slate-900 mb-1">Me kë do të udhëtoni?</h4>
-        <p class="text-sm text-slate-500 mb-6">Who are you travelling with?</p>
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3" data-q="3">
-            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Solo">🧍 <span class="block font-medium text-sm mt-1">Solo</span><span class="text-xs text-slate-500">Just me</span></button>
-            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Couple">👫 <span class="block font-medium text-sm mt-1">Couple</span><span class="text-xs text-slate-500">Me & my partner</span></button>
-            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Friends">👯 <span class="block font-medium text-sm mt-1">Friends</span><span class="text-xs text-slate-500">Group of friends</span></button>
-            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Family">👨‍👩‍👧 <span class="block font-medium text-sm mt-1">Family</span><span class="text-xs text-slate-500">Kids included</span></button>
-        </div>
-        <div class="flex justify-between mt-6">
-            <button class="quiz-back rounded-full border border-slate-200 text-slate-600 px-6 py-2.5 text-sm font-medium hover:bg-slate-50 transition" data-back="2">← Kthehu</button>
-            <button class="quiz-next rounded-full bg-[#2C1239] text-white px-6 py-2.5 text-sm font-medium disabled:opacity-40 transition" data-next="4" disabled>Vazhdoni →</button>
+            <button data-al="← Kthehu" data-en="← Back" class="quiz-back rounded-full border border-slate-200 text-slate-600 px-6 py-2.5 text-sm font-medium hover:bg-slate-50 transition" data-back="1">← Kthehu</button>
+            <button data-al="Vazhdoni →" data-en="Continue →" class="quiz-next rounded-full bg-[#2C1239] text-white px-6 py-2.5 text-sm font-medium disabled:opacity-40 transition" data-next="3" disabled>Vazhdoni →</button>
         </div>
         </div>
 
-         <!-- Step 4 -->
-        <div class="quiz-step hidden" id="step-4">
-        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[#2C1239]/60 mb-2">Hapi 4 / 7</p>
-        <h4 class="text-xl font-semibold text-slate-900 mb-1">Sa ditë keni në plan?</h4>
-        <p class="text-sm text-slate-500 mb-6">How many days are you planning?</p>
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3" data-q="4">
-            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="3-4 ditë">⚡ <span class="block font-medium text-sm mt-1">3–4 ditë</span><span class="text-xs text-slate-500">Quick getaway</span></button>
-            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="5-7 ditë">🗓️ <span class="block font-medium text-sm mt-1">5–7 ditë</span><span class="text-xs text-slate-500">Classic week</span></button>
-            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="8-14 ditë">🌍 <span class="block font-medium text-sm mt-1">8–14 ditë</span><span class="text-xs text-slate-500">Long holiday</span></button>
-            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Nuk jam i sigurt">🤷 <span class="block font-medium text-sm mt-1">Not sure yet</span><span class="text-xs text-slate-500">Flexible</span></button>
+        <!-- Step 3 -->
+        <div class="quiz-step hidden" id="step-3">
+        <p data-al="Hapi 3 / 7" data-en="Step 3 / 7" class="text-xs font-semibold uppercase tracking-[0.2em] text-[#2C1239]/60 mb-2">Hapi 3 / 7</p>
+        <h4 data-al="Me kë do të udhëtoni?" data-en="Who are you travelling with?" class="text-xl font-semibold text-slate-900 mb-1">Me kë do të udhëtoni?</h4>
+        <p data-al="Zgjedhni me kë udhëtoni." data-en="Choose who you're travelling with." class="text-sm text-slate-500 mb-6">Zgjedhni me kë udhëtoni.</p>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3" data-q="3">
+            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Vetëm">🧍 <span data-al="Vetëm" data-en="Solo" class="block font-medium text-sm mt-1">Vetëm</span><span data-al="Vetëm unë" data-en="Just me" class="text-xs text-slate-500">Vetëm unë</span></button>
+            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Çift">👫 <span data-al="Çift" data-en="Couple" class="block font-medium text-sm mt-1">Çift</span><span data-al="Unë & partneri" data-en="Me & my partner" class="text-xs text-slate-500">Unë & partneri</span></button>
+            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Miq">👯 <span data-al="Miq" data-en="Friends" class="block font-medium text-sm mt-1">Miq</span><span data-al="Me shokë e shoqe" data-en="Group of friends" class="text-xs text-slate-500">Me shokë e shoqe</span></button>
+            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Familje">👨‍👩‍👧 <span data-al="Familje" data-en="Family" class="block font-medium text-sm mt-1">Familje</span><span data-al="Me fëmijë" data-en="Kids included" class="text-xs text-slate-500">Me fëmijë</span></button>
         </div>
         <div class="flex justify-between mt-6">
-            <button class="quiz-back rounded-full border border-slate-200 text-slate-600 px-6 py-2.5 text-sm font-medium hover:bg-slate-50 transition" data-back="3">← Kthehu</button>
-            <button class="quiz-next rounded-full bg-[#2C1239] text-white px-6 py-2.5 text-sm font-medium disabled:opacity-40 transition" data-next="5" disabled>Vazhdoni →</button>
+            <button data-al="← Kthehu" data-en="← Back" class="quiz-back rounded-full border border-slate-200 text-slate-600 px-6 py-2.5 text-sm font-medium hover:bg-slate-50 transition" data-back="2">← Kthehu</button>
+            <button data-al="Vazhdoni →" data-en="Continue →" class="quiz-next rounded-full bg-[#2C1239] text-white px-6 py-2.5 text-sm font-medium disabled:opacity-40 transition" data-next="4" disabled>Vazhdoni →</button>
+        </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="quiz-step hidden" id="step-4">
+        <p data-al="Hapi 4 / 7" data-en="Step 4 / 7" class="text-xs font-semibold uppercase tracking-[0.2em] text-[#2C1239]/60 mb-2">Hapi 4 / 7</p>
+        <h4 data-al="Sa ditë keni në plan?" data-en="How many days are you planning?" class="text-xl font-semibold text-slate-900 mb-1">Sa ditë keni në plan?</h4>
+        <p data-al="Sa kohë planifikoni të qëndroni?" data-en="How long are you planning to stay?" class="text-sm text-slate-500 mb-6">Sa kohë planifikoni të qëndroni?</p>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3" data-q="4">
+            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="3-4 ditë">⚡ <span data-al="3–4 ditë" data-en="3–4 days" class="block font-medium text-sm mt-1">3–4 ditë</span><span data-al="Ikje e shpejtë" data-en="Quick getaway" class="text-xs text-slate-500">Ikje e shpejtë</span></button>
+            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="5-7 ditë">🗓️ <span data-al="5–7 ditë" data-en="5–7 days" class="block font-medium text-sm mt-1">5–7 ditë</span><span data-al="Javë klasike" data-en="Classic week" class="text-xs text-slate-500">Javë klasike</span></button>
+            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="8-14 ditë">🌍 <span data-al="8–14 ditë" data-en="8–14 days" class="block font-medium text-sm mt-1">8–14 ditë</span><span data-al="Pushime të gjata" data-en="Long holiday" class="text-xs text-slate-500">Pushime të gjata</span></button>
+            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Nuk jam e sigurt">🤷 <span data-al="Nuk jam e sigurt" data-en="Not sure yet" class="block font-medium text-sm mt-1">Nuk jam e sigurt</span><span data-al="Fleksibël" data-en="Flexible" class="text-xs text-slate-500">Fleksibël</span></button>
+        </div>
+        <div class="flex justify-between mt-6">
+            <button data-al="← Kthehu" data-en="← Back" class="quiz-back rounded-full border border-slate-200 text-slate-600 px-6 py-2.5 text-sm font-medium hover:bg-slate-50 transition" data-back="3">← Kthehu</button>
+            <button data-al="Vazhdoni →" data-en="Continue →" class="quiz-next rounded-full bg-[#2C1239] text-white px-6 py-2.5 text-sm font-medium disabled:opacity-40 transition" data-next="5" disabled>Vazhdoni →</button>
         </div>
         </div>
 
         <!-- Step 5 - Budget slider -->
         <div class="quiz-step hidden" id="step-5">
-        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[#2C1239]/60 mb-2">Hapi 5 / 7</p>
-        <h4 class="text-xl font-semibold text-slate-900 mb-1">Çfarë buxheti keni për person?</h4>
-        <p class="text-sm text-slate-500 mb-6">Budget per person — flights + hotel included</p>
+        <p data-al="Hapi 5 / 7" data-en="Step 5 / 7" class="text-xs font-semibold uppercase tracking-[0.2em] text-[#2C1239]/60 mb-2">Hapi 5 / 7</p>
+        <h4 data-al="Çfarë buxheti keni për person?" data-en="What's your budget per person?" class="text-xl font-semibold text-slate-900 mb-1">Çfarë buxheti keni për person?</h4>
+        <p data-al="Buxheti për person — fluturime + hotel të përfshira" data-en="Budget per person — flights + hotel included" class="text-sm text-slate-500 mb-6">Buxheti për person — fluturime + hotel të përfshira</p>
         <div class="text-3xl font-semibold text-[#2C1239] mb-4" id="budget-val">€300</div>
         <input type="range" min="100" max="2000" step="50" value="300" id="budget-slider"
             class="w-full accent-[#2C1239] mb-2" />
@@ -630,64 +308,70 @@ import zermatt from "../assets/zermatt.jpg";
             <span>€100</span><span>€500</span><span>€1000</span><span>€2000+</span>
         </div>
         <div class="flex justify-between mt-6">
-            <button class="quiz-back rounded-full border border-slate-200 text-slate-600 px-6 py-2.5 text-sm font-medium hover:bg-slate-50 transition" data-back="4">← Kthehu</button>
-            <button class="quiz-next rounded-full bg-[#2C1239] text-white px-6 py-2.5 text-sm font-medium transition" data-next="6">Vazhdoni →</button>
+            <button data-al="← Kthehu" data-en="← Back" class="quiz-back rounded-full border border-slate-200 text-slate-600 px-6 py-2.5 text-sm font-medium hover:bg-slate-50 transition" data-back="4">← Kthehu</button>
+            <button data-al="Vazhdoni →" data-en="Continue →" class="quiz-next rounded-full bg-[#2C1239] text-white px-6 py-2.5 text-sm font-medium transition" data-next="6">Vazhdoni →</button>
         </div>
         </div>
 
         <!-- Step 6 -->
         <div class="quiz-step hidden" id="step-6">
-        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[#2C1239]/60 mb-2">Hapi 6 / 7</p>
-        <h4 class="text-xl font-semibold text-slate-900 mb-1">Kur planifikoni të shkoni?</h4>
-        <p class="text-sm text-slate-500 mb-6">When are you planning to travel?</p>
+        <p data-al="Hapi 6 / 7" data-en="Step 6 / 7" class="text-xs font-semibold uppercase tracking-[0.2em] text-[#2C1239]/60 mb-2">Hapi 6 / 7</p>
+        <h4 data-al="Kur planifikoni të shkoni?" data-en="When are you planning to travel?" class="text-xl font-semibold text-slate-900 mb-1">Kur planifikoni të shkoni?</h4>
+        <p data-al="Zgjedhni periudhën e udhëtimit." data-en="Choose your travel period." class="text-sm text-slate-500 mb-6">Zgjedhni periudhën e udhëtimit.</p>
         <div class="grid grid-cols-2 sm:grid-cols-3 gap-3" data-q="6">
-            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Qershor">☀️ <span class="block font-medium text-sm mt-1">Qershor</span><span class="text-xs text-slate-500">June</span></button>
-            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Korrik">🌊 <span class="block font-medium text-sm mt-1">Korrik</span><span class="text-xs text-slate-500">July</span></button>
-            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Gusht">🏄 <span class="block font-medium text-sm mt-1">Gusht</span><span class="text-xs text-slate-500">August</span></button>
-            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Shtator">🍂 <span class="block font-medium text-sm mt-1">Shtator</span><span class="text-xs text-slate-500">September</span></button>
-            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Nuk di ende">🤷 <span class="block font-medium text-sm mt-1">Nuk di ende</span><span class="text-xs text-slate-500">Not decided</span></button>
+            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Qershor">☀️ <span data-al="Qershor" data-en="June" class="block font-medium text-sm mt-1">Qershor</span><span data-al="Fillimi i verës" data-en="Early summer" class="text-xs text-slate-500">Fillimi i verës</span></button>
+            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Korrik">🌊 <span data-al="Korrik" data-en="July" class="block font-medium text-sm mt-1">Korrik</span><span data-al="Vera në kulm" data-en="Peak summer" class="text-xs text-slate-500">Vera në kulm</span></button>
+            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Gusht">🏄 <span data-al="Gusht" data-en="August" class="block font-medium text-sm mt-1">Gusht</span><span data-al="Muaji më i nxehtë" data-en="Hottest month" class="text-xs text-slate-500">Muaji më i nxehtë</span></button>
+            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Shtator">🍂 <span data-al="Shtator" data-en="September" class="block font-medium text-sm mt-1">Shtator</span><span data-al="Fundi i verës" data-en="Late summer" class="text-xs text-slate-500">Fundi i verës</span></button>
+            <button class="quiz-opt rounded-xl border border-slate-200 p-4 text-left hover:border-[#2C1239] hover:bg-[#2C1239]/5 transition" data-v="Nuk di ende">🤷 <span data-al="Nuk di ende" data-en="Not sure yet" class="block font-medium text-sm mt-1">Nuk di ende</span><span data-al="Nuk kam vendosur" data-en="Not decided" class="text-xs text-slate-500">Nuk kam vendosur</span></button>
         </div>
         <div class="flex justify-between mt-6">
-            <button class="quiz-back rounded-full border border-slate-200 text-slate-600 px-6 py-2.5 text-sm font-medium hover:bg-slate-50 transition" data-back="5">← Kthehu</button>
-            <button class="quiz-next rounded-full bg-[#2C1239] text-white px-6 py-2.5 text-sm font-medium disabled:opacity-40 transition" data-next="7" disabled>Vazhdoni →</button>
+            <button data-al="← Kthehu" data-en="← Back" class="quiz-back rounded-full border border-slate-200 text-slate-600 px-6 py-2.5 text-sm font-medium hover:bg-slate-50 transition" data-back="5">← Kthehu</button>
+            <button data-al="Vazhdoni →" data-en="Continue →" class="quiz-next rounded-full bg-[#2C1239] text-white px-6 py-2.5 text-sm font-medium disabled:opacity-40 transition" data-next="7" disabled>Vazhdoni →</button>
         </div>
         </div>
 
         <!-- Step 7 - Contact -->
         <div class="quiz-step hidden" id="step-7">
-        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[#2C1239]/60 mb-2">Hapi 7 / 7</p>
-        <h4 class="text-xl font-semibold text-slate-900 mb-1">Si mund t'ju kontaktojmë?</h4>
-        <p class="text-sm text-slate-500 mb-6">How can we reach you with the best deal?</p>
+        <p data-al="Hapi 7 / 7" data-en="Step 7 / 7" class="text-xs font-semibold uppercase tracking-[0.2em] text-[#2C1239]/60 mb-2">Hapi 7 / 7</p>
+        <h4 data-al="Si mund t'ju kontaktojmë?" data-en="How can we reach you?" class="text-xl font-semibold text-slate-900 mb-1">Si mund t'ju kontaktojmë?</h4>
+        <p data-al="Si mund t'ju kontaktojmë me ofertën më të mirë?" data-en="How can we reach you with the best deal?" class="text-sm text-slate-500 mb-6">Si mund t'ju kontaktojmë me ofertën më të mirë?</p>
         <div class="grid gap-4">
-            <input id="q-name" type="text" placeholder="Emri juaj / Your name"
-            class="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#2C1239]/30" />
-            <input id="q-phone" type="tel" placeholder="Numri i telefonit / Phone number"
-            class="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#2C1239]/30" />
+            <input id="q-name" type="text"
+                data-al-placeholder="Emri juaj"
+                data-en-placeholder="Your name"
+                placeholder="Emri juaj"
+                class="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#2C1239]/30" />
+            <input id="q-phone" type="tel"
+                data-al-placeholder="Numri i telefonit"
+                data-en-placeholder="Phone number"
+                placeholder="Numri i telefonit"
+                class="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#2C1239]/30" />
         </div>
         <div class="flex justify-between mt-6">
-            <button class="quiz-back rounded-full border border-slate-200 text-slate-600 px-6 py-2.5 text-sm font-medium hover:bg-slate-50 transition" data-back="6">← Kthehu</button>
-            <button id="quiz-submit" class="rounded-full bg-[#2C1239] text-white px-6 py-2.5 text-sm font-medium disabled:opacity-40 transition" disabled>Dërgo kërkesën →</button>
+            <button data-al="← Kthehu" data-en="← Back" class="quiz-back rounded-full border border-slate-200 text-slate-600 px-6 py-2.5 text-sm font-medium hover:bg-slate-50 transition" data-back="6">← Kthehu</button>
+            <button data-al="Dërgo kërkesën →" data-en="Send request →" id="quiz-submit" class="rounded-full bg-[#2C1239] text-white px-6 py-2.5 text-sm font-medium disabled:opacity-40 transition" disabled>Dërgo kërkesën →</button>
         </div>
         </div>
 
         <!-- Result -->
         <div class="quiz-step hidden text-center" id="step-result">
         <div class="text-5xl mb-4">🎉</div>
-        <h4 class="text-2xl font-semibold text-slate-900 mb-2">Faleminderit!</h4>
-        <p class="text-slate-600 mb-6">Kërkesa juaj u pranua! Do t'ju kontaktojmë me ofertat më të mira sa më shpejt.<br><span class="text-sm text-slate-400">We'll be in touch with the best deals for you.</span></p>
+        <h4 data-al="Faleminderit!" data-en="Thank you!" class="text-2xl font-semibold text-slate-900 mb-2">Faleminderit!</h4>
+        <p data-al="Kërkesa juaj u pranua! Do t'ju kontaktojmë me ofertat më të mira sa më shpejt." data-en="Your request was received! We'll be in touch with the best deals for you very soon." class="text-slate-600 mb-6">Kërkesa juaj u pranua! Do t'ju kontaktojmë me ofertat më të mira sa më shpejt.</p>
         <div id="quiz-summary" class="text-left bg-slate-50 rounded-xl p-5 mb-6 text-sm text-slate-700 space-y-2"></div>
         <a id="quiz-wa" href="#" target="_blank"
             class="inline-flex items-center gap-2 rounded-full bg-[#25D366] text-white px-6 py-3 text-sm font-medium hover:bg-[#22c35e] transition mb-4">
             <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.533 5.862L0 24l6.335-1.652A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.371l-.36-.214-3.724.972.99-3.614-.235-.372A9.818 9.818 0 1112 21.818z"/></svg>
-            Konfirmo në WhatsApp
+            <span data-al="Konfirmo në WhatsApp" data-en="Confirm on WhatsApp">Konfirmo në WhatsApp</span>
         </a>
         <br>
-        <button id="quiz-restart" class="text-sm text-[#2C1239] underline decoration-[#2C1239]/30 hover:decoration-[#2C1239]">Fillo nga e para</button>
+        <button data-al="Fillo nga e para" data-en="Start over" id="quiz-restart" class="text-sm text-[#2C1239] underline decoration-[#2C1239]/30 hover:decoration-[#2C1239]">Fillo nga e para</button>
         </div>
         </div>
         </section>
 
-<script is:inline>
+        <script is:inline>
 (function() {
   const answers = { budget: '€300' };
 
@@ -750,6 +434,11 @@ import zermatt from "../assets/zermatt.jpg";
     });
   });
 
+  const summaryLabels = {
+    al: { dest: 'Destinacioni', type: 'Lloji', with: 'Me kë', days: 'Ditët', budget: 'Buxheti', period: 'Periudha', name: 'Emri', phone: 'Telefoni' },
+    en: { dest: 'Destination', type: 'Trip type', with: 'Travelling with', days: 'Days', budget: 'Budget', period: 'Period', name: 'Name', phone: 'Phone' },
+  };
+
   submitBtn.addEventListener('click', function() {
     const name = nameEl.value.trim();
     const phone = phoneEl.value.trim();
@@ -757,15 +446,17 @@ import zermatt from "../assets/zermatt.jpg";
     answers.name = name;
     answers.phone = phone;
 
+    const lang = localStorage.getItem('lang') || 'al';
+    const L = summaryLabels[lang];
     const rows = [
-      ['Destinacioni', answers.q1 || '-'],
-      ['Lloji', answers.q2 || '-'],
-      ['Me kë', answers.q3 || '-'],
-      ['Ditët', answers.q4 || '-'],
-      ['Buxheti', answers.budget],
-      ['Periudha', answers.q6 || '-'],
-      ['Emri', name],
-      ['Telefoni', phone],
+      [L.dest, answers.q1 || '-'],
+      [L.type, answers.q2 || '-'],
+      [L.with, answers.q3 || '-'],
+      [L.days, answers.q4 || '-'],
+      [L.budget, answers.budget],
+      [L.period, answers.q6 || '-'],
+      [L.name, name],
+      [L.phone, phone],
     ];
 
     document.getElementById('quiz-summary').innerHTML = rows
@@ -799,14 +490,292 @@ import zermatt from "../assets/zermatt.jpg";
 })();
 </script>
 
+
+        <!-- HERO -->
+        <section class="mx-auto max-w-8xl text-center px-6 pt-24 pb-6">
+        <h1
+            data-al="Thjesht udhëto — detajet i rregullojmë ne."
+            data-en="Just travel — we'll handle the details."
+            class="text-4xl sm:text-5xl font-semibold tracking-tight">
+            Thjesht udhëto — detajet i rregullojmë ne.
+        </h1>
+        </section>
+
+        <!-- ABOUT -->
+        <section class="mx-auto max-w-3xl px-6 pb-20">
+            <p
+                data-al="Truvia Travel është një agjenci e vogël dhe e pavarur udhëtimesh, që krijon itinerare të personalizuara për kudo në botë."
+                data-en="Truvia Travel is a small, independent travel agency that creates personalised itineraries for anywhere in the world."
+                class="text-slate-700 leading-relaxed">
+                Truvia Travel është një agjenci e vogël dhe e pavarur udhëtimesh,
+                që krijon itinerare të personalizuara për kudo në botë.
+            </p>
+            <p
+                data-al="Ne punojmë ngushtë me klientët tanë për të ndërtuar udhëtime që ndihen të natyrshme, të qeta dhe personale. Pa rrugë të gatshme, pa ndalesa të panevojshme — vetëm vende të përzgjedhura me kujdes, që lidhen bukur me njëra-tjetrën."
+                data-en="We work closely with our clients to build trips that feel natural, calm and personal. No tiring routes, no unnecessary stops — just carefully chosen places that connect beautifully with one another."
+                class="mt-4 text-slate-700 leading-relaxed">
+                Ne punojmë ngushtë me klientët tanë për të ndërtuar udhëtime që ndihen të natyrshme,
+                të qeta dhe personale. Pa rrugë të gatshme, pa ndalesa të panevojshme — vetëm vende
+                të përzgjedhura me kujdes, që lidhen bukur me njëra-tjetrën.
+            </p>
+            <p
+                data-al="Nëse po planifikon një fundjavë në qytet ose një udhëtim të gjatë nëpër botë, qëllimi ynë është ta bëjmë gjithçka sa më të thjeshtë për ty."
+                data-en="Whether you're planning a city weekend or a long journey across the world, our goal is to make everything as easy as possible for you."
+                class="mt-4 text-slate-700 leading-relaxed">
+                Nëse po planifikon një fundjavë në qytet ose një udhëtim të gjatë nëpër botë,
+                qëllimi ynë është ta bëjmë gjithçka sa më të thjeshtë për ty.
+            </p>
+        </section>
+
+        <!-- DESTINATIONS -->
+        <section class="mx-auto max-w-5xl px-6 pb-20">
+            <h2 data-al="Destinacione të rekomanduara" data-en="Recommended destinations" class="text-sm uppercase text-center tracking-[0.2em] text-slate-500">
+                Destinacione të rekomanduara
+            </h2>
+
+            <!-- Horizontal scroller -->
+            <div class="mt-6 -mx-6 overflow-x-auto px-6">
+                <div class="flex gap-4 snap-x snap-mandatory pb-2 pr-6">
+                    <article class="group snap-start shrink-0 w-[260px] sm:w-[320px] overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-md hover:ring-slate-300">
+                        <div class="relative aspect-[16/16]">
+						<Image src={paris} alt="Paris" class="h-full w-full object-cover" loading="eager" decoding="async" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
+                        <p class="absolute bottom-3 left-4 right-4 text-lg font-semibold text-white">Paris</p>
+                        </div>
+                        <div class="p-5">
+                        <p data-al="Francë" data-en="France" class="text-sm text-slate-600">Francë</p>
+                        <p data-al="E rekomanduar" data-en="Recommended" class="mt-3 text-xs font-semibold tracking-[0.2em] uppercase text-slate-500">E rekomanduar</p>
+                        </div>
+                    </article>
+
+                    <article class="group snap-start shrink-0 w-[260px] sm:w-[320px] overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-md hover:ring-slate-300">
+                        <div class="relative aspect-[16/16]">
+                        <Image src={lapland} alt="Lapland" class="h-full w-full object-cover" loading="eager" decoding="async" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
+                        <p class="absolute bottom-3 left-4 right-4 text-lg font-semibold text-white">Lapland</p>
+                        </div>
+                        <div class="p-5">
+                        <p data-al="Finlandë" data-en="Finland" class="text-sm text-slate-600">Finlandë</p>
+                        <p data-al="E rekomanduar" data-en="Recommended" class="mt-3 text-xs font-semibold tracking-[0.2em] uppercase text-slate-500">E rekomanduar</p>
+                        </div>
+                    </article>
+
+                    <article class="group snap-start shrink-0 w-[260px] sm:w-[320px] overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-md hover:ring-slate-300">
+                        <div class="relative aspect-[16/16]">
+                        <Image src={madeira} alt="Madeira" class="h-full w-full object-cover" loading="eager" decoding="async" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
+                        <p class="absolute bottom-3 left-4 right-4 text-lg font-semibold text-white">Madeira</p>
+                        </div>
+                        <div class="p-5">
+                        <p data-al="Portugali" data-en="Portugal" class="text-sm text-slate-600">Portugali</p>
+                        <p data-al="E rekomanduar" data-en="Recommended" class="mt-3 text-xs font-semibold tracking-[0.2em] uppercase text-slate-500">E rekomanduar</p>
+                        </div>
+                    </article>
+
+                    <article class="group snap-start shrink-0 w-[260px] sm:w-[320px] overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-md hover:ring-slate-300">
+                        <div class="relative aspect-[16/16]">
+                        <Image src={london} alt="London" class="h-full w-full object-cover" loading="eager" decoding="async" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
+                        <p class="absolute bottom-3 left-4 right-4 text-lg font-semibold text-white">Londër</p>
+                        </div>
+                        <div class="p-5">
+                        <p class="text-sm text-slate-600">UK</p>
+                        <p data-al="E rekomanduar" data-en="Recommended" class="mt-3 text-xs font-semibold tracking-[0.2em] uppercase text-slate-500">E rekomanduar</p>
+                        </div>
+                    </article>
+
+                    <article class="group snap-start shrink-0 w-[260px] sm:w-[320px] overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-md hover:ring-slate-300">
+                        <div class="relative aspect-[16/16]">
+						<Image src={amalfi} alt="Amalfi" class="h-full w-full object-cover" loading="eager" decoding="async" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
+                        <p class="absolute bottom-3 left-4 right-4 text-lg font-semibold text-white">Amalfi</p>
+                        </div>
+                        <div class="p-5">
+                        <p data-al="Itali" data-en="Italy" class="text-sm text-slate-600">Itali</p>
+                        <p data-al="E rekomanduar" data-en="Recommended" class="mt-3 text-xs font-semibold tracking-[0.2em] uppercase text-slate-500">E rekomanduar</p>
+                        </div>
+                    </article>
+
+                    <article class="group snap-start shrink-0 w-[260px] sm:w-[320px] overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-md hover:ring-slate-300">
+                        <div class="relative aspect-[16/16]">
+                        <Image src={riodejaneiro} alt="Rio De Janeiro" class="h-full w-full object-cover" loading="eager" decoding="async" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
+                        <p class="absolute bottom-3 left-4 right-4 text-lg font-semibold text-white">Rio De Janeiro</p>
+                        </div>
+                        <div class="p-5">
+                        <p data-al="Brazil" data-en="Brazil" class="text-sm text-slate-600">Brazil</p>
+                        <p data-al="E rekomanduar" data-en="Recommended" class="mt-3 text-xs font-semibold tracking-[0.2em] uppercase text-slate-500">E rekomanduar</p>
+                        </div>
+                    </article>
+
+                    <article class="group snap-start shrink-0 w-[260px] sm:w-[320px] overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-md hover:ring-slate-300">
+                        <div class="relative aspect-[16/16]">
+                        <Image src={tokyo} alt="Tokyo" class="h-full w-full object-cover" loading="eager" decoding="async" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
+                        <p class="absolute bottom-3 left-4 right-4 text-lg font-semibold text-white">Tokio</p>
+                        </div>
+                        <div class="p-5">
+                        <p data-al="Japoni" data-en="Japan" class="text-sm text-slate-600">Japoni</p>
+                        <p data-al="E rekomanduar" data-en="Recommended" class="mt-3 text-xs font-semibold tracking-[0.2em] uppercase text-slate-500">E rekomanduar</p>
+                        </div>
+                    </article>
+
+                    <article class="group snap-start shrink-0 w-[260px] sm:w-[320px] overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-md hover:ring-slate-300">
+                        <div class="relative aspect-[16/16]">
+                        <Image src={zermatt} alt="Zermatt" class="h-full w-full object-cover" loading="eager" decoding="async" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
+                        <p class="absolute bottom-3 left-4 right-4 text-lg font-semibold text-white">Zermatt</p>
+                        </div>
+                        <div class="p-5">
+                        <p data-al="Zvicër" data-en="Switzerland" class="text-sm text-slate-600">Zvicër</p>
+                        <p data-al="E rekomanduar" data-en="Recommended" class="mt-3 text-xs font-semibold tracking-[0.2em] uppercase text-slate-500">E rekomanduar</p>
+                        </div>
+                    </article>
+
+                    <article class="group snap-start shrink-0 w-[260px] sm:w-[320px] overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-md hover:ring-slate-300">
+                        <div class="relative aspect-[16/16]">
+                        <Image src={istanbul} alt="Istanbul" class="h-full w-full object-cover" loading="eager" decoding="async" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
+                        <p class="absolute bottom-3 left-4 right-4 text-lg font-semibold text-white">Stamboll</p>
+                        </div>
+                        <div class="p-5">
+                        <p data-al="Turqi" data-en="Turkey" class="text-sm text-slate-600">Turqi</p>
+                        <p data-al="E rekomanduar" data-en="Recommended" class="mt-3 text-xs font-semibold tracking-[0.2em] uppercase text-slate-500">E rekomanduar</p>
+                        </div>
+                    </article>
+
+                    <article class="group snap-start shrink-0 w-[260px] sm:w-[320px] overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-md hover:ring-slate-300">
+                        <div class="relative aspect-[16/16]">
+                        <Image src={krabi} alt="Krabi" class="h-full w-full object-cover" loading="eager" decoding="async" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
+                        <p class="absolute bottom-3 left-4 right-4 text-lg font-semibold text-white">Krabi</p>
+                        </div>
+                        <div class="p-5">
+                        <p data-al="Tajlandë" data-en="Thailand" class="text-sm text-slate-600">Tajlandë</p>
+                        <p data-al="E rekomanduar" data-en="Recommended" class="mt-3 text-xs font-semibold tracking-[0.2em] uppercase text-slate-500">E rekomanduar</p>
+                        </div>
+                    </article>
+
+                    <article class="group snap-start shrink-0 w-[260px] sm:w-[320px] overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-md hover:ring-slate-300">
+                        <div class="relative aspect-[16/16]">
+                        <Image src={prague} alt="Prague" class="h-full w-full object-cover" loading="eager" decoding="async" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
+                        <p class="absolute bottom-3 left-4 right-4 text-lg font-semibold text-white">Pragë</p>
+                        </div>
+                        <div class="p-5">
+                        <p data-al="Çeki" data-en="Czech Republic" class="text-sm text-slate-600">Çeki</p>
+                        <p data-al="E rekomanduar" data-en="Recommended" class="mt-3 text-xs font-semibold tracking-[0.2em] uppercase text-slate-500">E rekomanduar</p>
+                        </div>
+                    </article>
+
+                    <article class="group snap-start shrink-0 w-[260px] sm:w-[320px] overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-md hover:ring-slate-300">
+                        <div class="relative aspect-[16/16]">
+                        <Image src={marrakech} alt="Marrakech" class="h-full w-full object-cover" loading="eager" decoding="async" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
+                        <p class="absolute bottom-3 left-4 right-4 text-lg font-semibold text-white">Marrakesh</p>
+                        </div>
+                        <div class="p-5">
+                        <p data-al="Moroko" data-en="Morocco" class="text-sm text-slate-600">Moroko</p>
+                        <p data-al="E rekomanduar" data-en="Recommended" class="mt-3 text-xs font-semibold tracking-[0.2em] uppercase text-slate-500">E rekomanduar</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+            <p data-al="Lëvizni për të eksploruar →" data-en="Scroll horizontally to explore →" class="mt-3 text-center text-xs text-slate-500">Lëvizni për të eksploruar →</p>
+        </section>
+
+
+        <!-- WHY US -->
+        <section class="mx-auto max-w-5xl px-6 pb-24">
+        <h2 data-al="Pse të zgjedhni Truvia Travel?" data-en="Why choose Truvia Travel?" class="text-sm uppercase tracking-[0.2em] text-emerald-900/70 text-center">
+            Pse të zgjedhni Truvia Travel?
+        </h2>
+
+        <div class="mt-8 grid gap-4 sm:grid-cols-2">
+            <article class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-emerald-900/10 transition hover:-translate-y-0.5 hover:shadow-md hover:ring-emerald-900/20">
+            <div class="flex items-start gap-3">
+                <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-900/10 text-emerald-950 ring-1 ring-emerald-900/10">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3z" />
+                </svg>
+                </span>
+                <div>
+                <p data-al="Personalizim" data-en="Personalisation" class="text-xs font-semibold tracking-[0.2em] uppercase text-emerald-900/60">Personalizim</p>
+                <h3 data-al="Itinerare 100% sipas jush" data-en="Itineraries 100% tailored to you" class="mt-1 text-lg font-semibold text-slate-900">Itinerare 100% sipas jush</h3>
+                <p data-al="Na tregoni stilin, buxhetin dhe ritmin tuaj — ne krijojmë një plan udhëtimi që duket natyral dhe i lehtë." data-en="Tell us your style, budget and pace — we'll create a travel plan that feels natural and effortless." class="mt-2 text-sm leading-relaxed text-slate-600">
+                    Na tregoni stilin, buxhetin dhe ritmin tuaj — ne krijojmë një plan udhëtimi që duket natyral dhe i lehtë.
+                </p>
+                </div>
+            </div>
+            </article>
+
+            <article class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-emerald-900/10 transition hover:-translate-y-0.5 hover:shadow-md hover:ring-emerald-900/20">
+            <div class="flex items-start gap-3">
+                <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-900/10 text-emerald-950 ring-1 ring-emerald-900/10">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5 2V6l5-2 6 2 5-2v16l-5 2-6-2z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 4v16M15 6v16" />
+                </svg>
+                </span>
+                <div>
+                <p data-al="Qartësi" data-en="Clarity" class="text-xs font-semibold tracking-[0.2em] uppercase text-emerald-900/60">Qartësi</p>
+                <h3 data-al="Plan i qartë dhe pa stres" data-en="A clear, stress-free plan" class="mt-1 text-lg font-semibold text-slate-900">Plan i qartë dhe pa stres</h3>
+                <p data-al="Itinerar i organizuar me logjikë: kohë reale, distanca të arsyeshme dhe rekomandime që bëjnë sens së bashku." data-en="A logically organised itinerary: realistic timings, reasonable distances, and recommendations that make sense together." class="mt-2 text-sm leading-relaxed text-slate-600">
+                    Itinerar i organizuar me logjikë: kohë reale, distanca të arsyeshme dhe rekomandime që bëjnë sens së bashku.
+                </p>
+                </div>
+            </div>
+            </article>
+
+            <article class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-emerald-900/10 transition hover:-translate-y-0.5 hover:shadow-md hover:ring-emerald-900/20">
+            <div class="flex items-start gap-3">
+                <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-900/10 text-emerald-950 ring-1 ring-emerald-900/10">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v5l3 2" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                </span>
+                <div>
+                <p data-al="Kursim kohe" data-en="Time saving" class="text-xs font-semibold tracking-[0.2em] uppercase text-emerald-900/60">Kursim kohe</p>
+                <h3 data-al="Më pak kërkim, më shumë udhëtim" data-en="Less searching, more travelling" class="mt-1 text-lg font-semibold text-slate-900">Më pak kërkim, më shumë udhëtim</h3>
+                <p data-al="Ne bëjmë filtrimin e opsioneve: vendet, transportin, aktivitetet — që ju të fokusoheni te përjetimi." data-en="We do the filtering: places, transport, activities — so you can focus on the experience." class="mt-2 text-sm leading-relaxed text-slate-600">
+                    Ne bëjmë filtrimin e opsioneve: vendet, transportin, aktivitetet — që ju të fokusoheni te përjetimi.
+                </p>
+                </div>
+            </div>
+            </article>
+
+            <article class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-emerald-900/10 transition hover:-translate-y-0.5 hover:shadow-md hover:ring-emerald-900/20">
+            <div class="flex items-start gap-3">
+                <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-900/10 text-emerald-950 ring-1 ring-emerald-900/10">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2l7 4v6c0 5-3 9-7 10-4-1-7-5-7-10V6l7-4z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" />
+                </svg>
+                </span>
+                <div>
+                <p data-al="Kujdes" data-en="Attention to detail" class="text-xs font-semibold tracking-[0.2em] uppercase text-emerald-900/60">Kujdes</p>
+                <h3 data-al="Detaje që bëjnë diferencën" data-en="Details that make the difference" class="mt-1 text-lg font-semibold text-slate-900">Detaje që bëjnë diferencën</h3>
+                <p data-al='Nga "hidden gems" te këshillat praktike — çdo gjë menduar që udhëtimi të shkojë smooth dhe me besim.' data-en='From hidden gems to practical tips — everything thought through so your trip runs smoothly and with confidence.' class="mt-2 text-sm leading-relaxed text-slate-600">
+                    Nga "hidden gems" te këshillat praktike — çdo gjë menduar që udhëtimi të shkojë smooth dhe me besim.
+                </p>
+                </div>
+            </div>
+            </article>
+        </div>
+        </section>
+
+
         <!-- Kontakti -->
         <section class="border-t bg-[#2C1239]">
             <div class="mx-auto max-w-3xl py-3 text-center text-white/100">
-                <p class="text-lg">
+                <p data-al="Po kërkoni një pushim të veçantë?" data-en="Looking for a special getaway?" class="text-lg">
                 Po kërkoni një pushim të veçantë?
                 </p>
                 <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
                     <a href="/contact"
+                        data-al="Na kontaktoni"
+                        data-en="Contact us"
                         class="rounded-full bg-white text-slate-900 px-6 py-3 text-sm font-medium hover:bg-white/90 shadow-sm ring-1 ring-white/20">
                         Na kontaktoni
                     </a>
@@ -820,7 +789,7 @@ import zermatt from "../assets/zermatt.jpg";
                     <br />
                     © {new Date().getFullYear()} Truvia Travel · Prishtinë
                     <br />
-                    Na telefononi: +383 44 238 343
+                    <span data-al="Na telefononi:" data-en="Call us:">Na telefononi:</span> +383 44 238 343
                     <br />
                     Email: info@truviatravel.com
                     <br />
@@ -828,5 +797,47 @@ import zermatt from "../assets/zermatt.jpg";
                 </p>
             </div>
         </section>
+
+        <!-- Language switcher script -->
+        <script is:inline>
+(function() {
+  function applyLang(lang) {
+    document.querySelectorAll('[data-al][data-en]').forEach(el => {
+      el.textContent = lang === 'al' ? el.dataset.al : el.dataset.en;
+    });
+    document.querySelectorAll('[data-al-placeholder][data-en-placeholder]').forEach(el => {
+      el.placeholder = lang === 'al' ? el.dataset.alPlaceholder : el.dataset.enPlaceholder;
+    });
+    const active = 'text-white';
+    const inactive = 'text-white/40';
+    [['lang-label-sq', 'lang-label-en'], ['lang-label-sq-mob', 'lang-label-en-mob']].forEach(([sq, en]) => {
+      const sqEl = document.getElementById(sq);
+      const enEl = document.getElementById(en);
+      if (!sqEl || !enEl) return;
+      if (lang === 'al') {
+        sqEl.className = active + ' transition';
+        enEl.className = inactive + ' transition';
+      } else {
+        sqEl.className = inactive + ' transition';
+        enEl.className = active + ' transition';
+      }
+    });
+    localStorage.setItem('lang', lang);
+  }
+
+  function toggleLang() {
+    const current = localStorage.getItem('lang') || 'al';
+    applyLang(current === 'al' ? 'en' : 'al');
+  }
+
+  const saved = localStorage.getItem('lang') || 'al';
+  applyLang(saved);
+
+  document.getElementById('lang-toggle').addEventListener('click', toggleLang);
+  const mob = document.getElementById('lang-toggle-mobile');
+  if (mob) mob.addEventListener('click', toggleLang);
+})();
+</script>
+
     </body>
 </html>
